@@ -18,14 +18,14 @@
         "selectedIconPath": "static/app/tab-bar/home-active.png"
       },
       {
-        "pagePath": "pages/counter/main",
+        "pagePath": "pages/tab-bar/categories/main",
         "text": "分类",
         "iconPath": "static/app/tab-bar/categories.png",
         "selectedIconPath": "static/app/tab-bar/categories-active.png"
       },
       {
-        "pagePath": "pages/logs/main",
-        "text": "首页",
+        "pagePath": "pages/tab-bar/my/main",
+        "text": "我",
         "iconPath": "static/app/tab-bar/my.png",
         "selectedIconPath": "static/app/tab-bar/my-active.png"
       }
@@ -33,7 +33,7 @@
   },
   "pages": [
     "pages/tab-bar/index/main",
-    "pages/counter/main",
-    "pages/logs/main"
+    "pages/tab-bar/categories/main",
+    "pages/tab-bar/my/main"
   ]
 }
