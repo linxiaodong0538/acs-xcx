@@ -1,6 +1,6 @@
 <template>
-  <div class="p-tab-bar-index">
-    tab bar index
+  <div class="p-tab-bar-my">
+    tab bar my
   </div>
 </template>
 
