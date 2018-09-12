@@ -1,14 +1,13 @@
 @import "~sass-utils";
 
-@import "./components/button-group";
-@import "./components/button";
-@import "./components/panel";
-@import "./components/tabs";
-@import "./components/icon";
-@import "./components/list";
-@import "./components/tag";
+@import "global/components/button";
+@import "global/components/panel";
+@import "global/components/tabs";
+@import "global/components/icon";
+@import "global/components/list";
+@import "global/components/tag";
 
-@import "./objects/grid";
-@import "./objects/media";
+@import "global/objects/grid";
+@import "global/objects/media";
 
-@import "utils/base";
+@import "global/utils/base";
