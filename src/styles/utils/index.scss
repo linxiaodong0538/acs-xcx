@@ -1,0 +1,24 @@
+@import "../../utils/index";
+
+.u-block-middle {
+  @include position--absolute(50%, null, null, 0);
+
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.u-mb-20 {
+  margin-bottom: px2rpx(20px);
+}
+
+.u-pt-20 {
+  padding-top: px2rpx(20px);
+}
+
+.u-block-center {
+  @include block--center;
+}
+
+.u-display--inline-block {
+  display: inline-block;
+}

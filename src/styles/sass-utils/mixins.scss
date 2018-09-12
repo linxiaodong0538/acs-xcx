@@ -1,0 +1,17 @@
+/**
+ * 文字垂直居中
+ * @param {string} $height 高度
+ */
+@mixin text--middle($height) {
+  height: $height;
+  line-height: $height + 2rpx;
+}
+
+@mixin text-ellipsis($line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+}
