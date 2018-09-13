@@ -1,11 +1,23 @@
+// 字体
 $font-sizes: (
-  fs1: 12px
+  fs26: px2rpx(26px),
+  fs28: px2rpx(28px),
+  fs34: px2rpx(34px),
+  fs36: px2rpx(36px)
 );
 
+// 颜色
 $colors: (
-  c1: red
+  c1: #FFFFFF,
+  c2: #FED02F,
+  c3: #333333,
+  c4: #E5E5E5,
+  c5: #999999,
+  c6: #f6f6f6
 );
 
-$cdn: "https://sbd-source.liruan.cn/";
+// 图片 CDN
+$cdn: "http://localhost:88/";
 
+// 静态资源版本号
 $version: 0.1;

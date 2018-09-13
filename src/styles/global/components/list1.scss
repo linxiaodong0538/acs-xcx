@@ -1,0 +1,14 @@
+@include c(list1) {
+  @include e(item) {
+    width: px2rpx(225px);
+    margin-right: px2rpx(10px);
+  }
+
+  @include e(image) {
+    @include size(px2rpx(225px), px2rpx(225px));
+  }
+
+  @include e(title) {
+    @include text--overflow(2);
+  }
+}

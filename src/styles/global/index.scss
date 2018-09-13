@@ -1,25 +1,28 @@
 @import "../utils/index";
-
 @import "./components/button";
 @import "./components/panel";
 @import "./components/tabs";
 @import "./components/icon";
 @import "./components/list";
+@import "./components/list1";
 @import "./components/tag";
-
 @import "./objects/grid";
 @import "./objects/media";
-
 @import "./utils/base";
 
 page {
   box-sizing: border-box;
   font-family: $font-family-mobile;
+  background-color: map-get($colors, c6);
 }
 
 @each $key, $value in $font-sizes {
   .#{$key} {
     font-size: $value;
+  }
+
+  .lh-#{$key} {
+    line-height: $value;
   }
 }
 

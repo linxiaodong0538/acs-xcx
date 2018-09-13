@@ -1,11 +1,21 @@
+// 文字居中
 .u-tac {
   text-align: center;
 }
 
+// 字体加粗
 .u-fwb {
   font-weight: bold;
 }
 
+// 垂直居中
 .u-vam {
   vertical-align: middle;
+}
+
+// 垂直居中（另）
+.u-vc {
+  @include position--absolute(50%);
+
+  transform: translateY(-50%);
 }
