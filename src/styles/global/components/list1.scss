@@ -27,7 +27,6 @@
   }
 
   @include e(price) {
-    line-height: 100%;
     margin-bottom: px2rpx(29px);
   }
 }

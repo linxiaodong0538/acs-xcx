@@ -14,7 +14,7 @@
           @click="handleClick(item)" />
       </swiper-item>
     </swiper>
-    <div class="cc-indicator">
+    <div class="cc-indicator u-lh-1">
       <span
         v-for="(item, index) in indicatorItems"
         :key="index"
