@@ -32,6 +32,7 @@
     ]
   },
   "pages": [
+    "pages/login/main",
     "pages/tab-bar/index/main",
     "pages/tab-bar/categories/main",
     "pages/tab-bar/my/main"

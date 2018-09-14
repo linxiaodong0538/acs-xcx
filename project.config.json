@@ -7,10 +7,10 @@
 		"minified": true,
 		"newFeature": true
 	},
-	"miniprogramRoot": "./dist/",
+	"miniprogramRoot": "dist/",
 	"compileType": "miniprogram",
 	"appid": "wx6aa3e8308736f4f4",
-	"projectname": "my-project",
+	"projectname": "acs-mp",
 	"condition": {
 		"search": {
 			"current": -1,
