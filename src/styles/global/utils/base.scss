@@ -19,3 +19,11 @@
 
   transform: translateY(-50%);
 }
+
+.u-lh-1 {
+  line-height: 100%;
+}
+
+.u-to {
+  @include text--overflow;
+}
