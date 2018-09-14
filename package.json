@@ -11,6 +11,10 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "js-helpers": "^1.0.0",
+    "js-time": "^1.0.0",
+    "jt-helpers": "0.0.1",
+    "jt-time": "0.0.2",
     "mpvue": "^1.0.11",
     "sass-utils": "^1.0.16",
     "vuex": "^3.0.1"
