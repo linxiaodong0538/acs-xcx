@@ -15,27 +15,3 @@ page {
   font-family: $font-family-mobile;
   background-color: map-get($colors, c6);
 }
-
-@each $key, $value in $font-sizes {
-  .#{$key} {
-    font-size: $value;
-  }
-
-  .lh-#{$key} {
-    line-height: $value;
-  }
-}
-
-@each $key, $value in $colors {
-  .#{$key} {
-    color: $value;
-  }
-
-  .bg-#{$key} {
-    background-color: $value;
-  }
-
-  .bd-#{$key} {
-    border: 1px solid $value;
-  }
-}

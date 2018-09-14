@@ -22,6 +22,10 @@
   }
 }
 
+.u-cf {
+  @include clearfix;
+}
+
 // 文字居中
 .u-tac {
   text-align: center;
