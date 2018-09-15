@@ -97,7 +97,7 @@
     },
     async created () {
       this.items = await this.$bridge.request({
-        url: 'index'
+        url: ''
       })
 
       // console.log(this.items)
