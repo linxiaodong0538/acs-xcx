@@ -1,3 +1,31 @@
+@each $key, $value in $font-sizes {
+  .u-#{$key} {
+    font-size: $value;
+  }
+
+  .u-lh-#{$key} {
+    line-height: $value;
+  }
+}
+
+@each $key, $value in $colors {
+  .u-#{$key} {
+    color: $value;
+  }
+
+  .u-bg-#{$key} {
+    background-color: $value;
+  }
+
+  .u-bd-#{$key} {
+    border: 1px solid $value;
+  }
+}
+
+.u-cf {
+  @include clearfix;
+}
+
 // 文字居中
 .u-tac {
   text-align: center;

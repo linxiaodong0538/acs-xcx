@@ -1,4 +1,25 @@
 @import "../../../styles/utils/index";
 
 @include p(tab-bar-categories) {
+  @include pb(category-list) {
+    @include margin(px2rpx(28px), null, px2rpx(28px - 10px));
+
+    padding-left: px2rpx(10px);
+
+    @include e(item) {
+      @include margin(null, px2rpx(10px), px2rpx(10px));
+      @include text--middle(px2rpx(60px));
+
+      display: inline-block;
+      width: px2rpx(170px);
+      border-radius: px2rpx(4px);
+      color: map-get($colors, c7);
+      background-color: map-get($colors, c1);
+
+      &.is-active {
+        color: map-get($colors, c3);
+        background-color: map-get($colors, c2);
+      }
+    }
+  }
 }
