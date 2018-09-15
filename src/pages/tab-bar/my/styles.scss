@@ -1,4 +1,42 @@
 @import "../../../styles/utils/index";
 
 @include p(tab-bar-my) {
+  @include pb(user) {
+    @include size(100%, px2rpx(300px));
+
+    position: relative;
+
+    background: {
+      image: image-url("pages/tab-bar/my/info-bg.png");
+      size: 100% 100%;
+    }
+
+    @include e(avatar) {
+      @include circle(px2rpx(90px));
+      @include position--absolute(px2rpx(56px), null, null, 50%);
+
+      transform: translateX(-50%);
+      display: block;
+    }
+
+    @include e(name){
+      @include position--absolute(px2rpx(195px));
+
+      width: 100%;
+    }
+  }
+
+  @include pb(order) {
+    @include padding(px2rpx(20px), null, px2rpx(20px));
+
+    position: relative;
+
+    @include e(no) {
+      padding-bottom: px2rpx(16px);
+    }
+
+    @include e(finish) {
+      @include position--absolute(null, px2rpx(30px), px2rpx(20px));
+    }
+  }
 }

@@ -55,3 +55,7 @@
 .u-to {
   @include text--overflow;
 }
+
+.u-mb-14 {
+  margin-bottom: px2rpx(14px);
+}
