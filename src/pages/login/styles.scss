@@ -2,30 +2,30 @@
 
 @include p(login) {
     @include pb(login-container) {
-        @include padding(null, 30px,null,30px);
+        @include padding(null, px2rpx(60px),null,px2rpx(60px));
         @include pb(login-wrapper) {
             display: flex;
             flex: 1;
-            height: 170px;
+            height: px2rpx(360px);
             justify-content: center;
             align-items: center;
-            border-bottom: 1px solid #cdcdcd;
+            border-bottom: px2rpx(1px) solid #cdcdcd;
             @include e(logo) {
-                width: 60px;
-                height: 60px;
+                width: px2rpx(120px);
+                height: px2rpx(120px);
                 img {
                     @include img--block(100%,100%);
                 }
             }
         }
         @include pb(accredit-wrapper) {
-            @include padding(50px,null,null,null);
+            @include padding(px2rpx(100px),null,null,null);
             p {
-                padding-top:20px;
+                padding-top:px2rpx(20px);
             }
             button {
-                margin-top: 50px;
-                border-radius: 20px;
+                margin-top: px2rpx(100px);
+                border-radius: px2rpx(40px);
             }
         }
     }
