@@ -1,2 +1,32 @@
+@import '../../styles/utils/index';
 
-
+@include p(login) {
+    @include pb(login-container) {
+        @include padding(null, 30px,null,30px);
+        @include pb(login-wrapper) {
+            display: flex;
+            flex: 1;
+            height: 170px;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #cdcdcd;
+            @include e(logo) {
+                width: 60px;
+                height: 60px;
+                img {
+                    @include img--block(100%,100%);
+                }
+            }
+        }
+        @include pb(accredit-wrapper) {
+            @include padding(50px,null,null,null);
+            p {
+                padding-top:20px;
+            }
+            button {
+                margin-top: 50px;
+                border-radius: 20px;
+            }
+        }
+    }
+}
