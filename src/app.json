@@ -14,8 +14,8 @@
       {
         "pagePath": "pages/tab-bar/index/main",
         "text": "首页",
-        "iconPath": "static/app/tab-bar/home.png",
-        "selectedIconPath": "static/app/tab-bar/home-active.png"
+        "iconPath": "static/app/tab-bar/index.png",
+        "selectedIconPath": "static/app/tab-bar/index-active.png"
       },
       {
         "pagePath": "pages/tab-bar/categories/main",
@@ -32,9 +32,9 @@
     ]
   },
   "pages": [
-    "pages/login/main",
-    "pages/tab-bar/index/main",
+    "pages/tab-bar/my/main",
     "pages/tab-bar/categories/main",
-    "pages/tab-bar/my/main"
+    "pages/tab-bar/index/main",
+    "pages/login/main"
   ]
 }
