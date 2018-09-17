@@ -40,20 +40,22 @@ export default {
                     console.log('e', res)
                     let userParam = {
                       code: code,
-                      userInfo: res.userInfo,
+                      user: res.userInfo,
                       iv: res.iv,
                       encryptedData: res.encryptedData
                     }
+                    let data = JSON.stringify(userParam)
+                    console.log('1111', data)
                     this.$bridge
                       .request({
                         method: 'POST',
                         url: 'signin/weixin',
-                        data: userParam,
+                        dataType: 'json',
+                        data: data,
                         header: {
                           'Content-Type': 'aapplication/x-www-form-urlencoded'
                         },
                         success: res => {
-                          console.log(88888, res)
                         }
                       })
                       .then(v => {
@@ -74,9 +76,6 @@ export default {
           })
         }
       })
-    },
-    userInfo (e) {
-      console.log(e)
     }
   },
   onGetUserInfo (e) {
