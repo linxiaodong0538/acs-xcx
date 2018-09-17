@@ -1,36 +1,36 @@
-import storage from 'jt-storage'
+import bridge from './bridge'
 
 const USER = 'user'
 const TOKEN = 'token'
 
 export default {
   /**
-   * 获取 auth，返回：管理员信息和 token
+   * 获取 auth，返回：用户信息和 token
    * @return {Object}
    */
   get () {
     return {
-      [USER]: storage.get(USER),
-      [TOKEN]: storage.get(TOKEN)
+      [USER]: bridge.getStorageSync(USER),
+      [TOKEN]: bridge.getStorageSync(TOKEN)
     }
   },
 
   /**
    * 登录
-   * @param {string} user 登录管理员
+   * @param {string} user 登录用户
    * @param {string} token 登录 token
    */
   login ({ user, token }) {
-    storage.set(USER, user)
-    storage.set(TOKEN, `Bearer ${token}`)
+    bridge.setStorageSync(USER, user)
+    bridge.setStorageSync(TOKEN, `Bearer ${token}`)
   },
 
   /**
    * 登出
    */
   logout () {
-    storage.remove(USER)
-    storage.remove(TOKEN)
+    bridge.removeStorageSync(USER)
+    bridge.removeStorageSync(TOKEN)
   },
 
   /**
@@ -38,6 +38,6 @@ export default {
    * @return {boolean}
    */
   loggedIn () {
-    return !!storage.get(USER) && !!storage.get(TOKEN)
+    return !!bridge.getStorageSync(USER) && !!bridge.getStorageSync(TOKEN)
   }
 }
