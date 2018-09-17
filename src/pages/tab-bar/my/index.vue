@@ -24,10 +24,10 @@
     </div>
     <div class="o-box">
       <div class="c-tabs u-c3 u-fs26">
-        <ul>
-          <li class="c-tabs__item is-active" v-for="(item, index) in tabs" :key="index" @click="tab(index)">{{item}}</li>
+        <ul class="c-tabs__title">
+          <li class="c-tabs__item" :class="{'is-active': current == index}" v-for="(item, index) in tabs" :key="index" @click="tab(index)">{{item}}</li>
         </ul>
-        <div v-show="index == num" v-for='(itemCont,index) in tabContents' :key="index">{{itemCont}}</div>
+        <div class="c-tabs__content" v-show="index == current" v-for='(itemCont,index) in tabContents' :key="index">{{itemCont}}</div>
       </div>
     </div>
     <div class="c-panel">
@@ -65,13 +65,12 @@
       return {
         tabs: ['全部测试', '已完成', '草稿箱'],
         tabContents: ['内容一', '内容二', '内容三'],
-        num: 1
+        current: 0
       }
     },
     methods: {
       tab (index) {
-        console.log(index)
-        this.num = index
+        this.current = index
       }
     }
   }

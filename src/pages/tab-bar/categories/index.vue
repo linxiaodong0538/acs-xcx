@@ -5,7 +5,8 @@
         v-for="(item, index) in [0, 1, 2, 3, 4, 5, 6, 7]"
         :key="index"
         class="pb-category-list__item u-fs28 u-tac"
-        :class="{ 'is-active': index === 2 }">
+        :class="{ 'is-active': index === current }"
+        @click="handleSelect(index)">
         {{ item }} - 情感
       </li>
     </ul>
@@ -31,6 +32,16 @@
 <script>
   export default {
     created () {
+    },
+    data () {
+      return {
+        current: 0
+      }
+    },
+    methods: {
+      handleSelect (index) {
+        this.current = index
+      }
     }
   }
 </script>
