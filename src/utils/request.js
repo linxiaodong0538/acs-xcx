@@ -1,4 +1,4 @@
-import consts from '../consts/index'
+import consts from './consts/index'
 import bridge from './bridge'
 import auth from './auth'
 
