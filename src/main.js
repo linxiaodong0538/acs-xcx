@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App'
-import globalPlugins from './utils/plugins/global'
+import globalPlugin from './utils/plugins/global'
 
 Vue.config.productionTip = false
-Vue.use(globalPlugins)
+Vue.use(globalPlugin)
 
 App.mpType = 'app'
 
