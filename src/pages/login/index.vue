@@ -32,34 +32,28 @@ export default {
           // 查看是否授权
           wx.getSetting({
             success: res => {
-              console.log(11, res)
               if (res.authSetting['scope.userInfo'] === true) {
                 // 已经授权，可以直接调用 getUserInfo 获取头像昵称
                 wx.getUserInfo({
                   success: res => {
-                    console.log('e', res)
                     let userParam = {
                       code: code,
                       user: res.userInfo,
                       iv: res.iv,
                       encryptedData: res.encryptedData
                     }
-                    let data = JSON.stringify(userParam)
-                    console.log('1111', data)
                     this.$bridge
                       .request({
                         method: 'POST',
                         url: 'signin/weixin',
                         dataType: 'json',
-                        data: data,
-                        header: {
-                          'Content-Type': 'aapplication/x-www-form-urlencoded'
-                        },
-                        success: res => {
-                        }
+                        data: userParam
                       })
-                      .then(v => {
-                        console.log(1, v)
+                      .then(res => {
+                        if (res.data.code === 0) {
+                          let token = res.data.data[0].token
+                          wx.setStorageSync('token', token)
+                        }
                       })
                     // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
                     // 所以此处加入 callback 以防止这种情况
