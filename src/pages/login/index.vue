@@ -3,7 +3,7 @@
     <div class="pb-login-container">
       <div class="pb-login-wrapper">
           <div class="pb-login-wrapper__logo">
-            <img src="../../../others/images/wx.png" alt="">
+            <img src="../../../others/爱测试切图/wx.png" alt="">
           </div>
       </div>
       <div class="pb-accredit-wrapper">
