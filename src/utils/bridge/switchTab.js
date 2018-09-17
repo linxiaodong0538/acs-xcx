@@ -1,3 +1,1 @@
-export default options => {
-  return wx.switchTab(options)
-}
+export default wx.switchTab

@@ -1,3 +1,1 @@
-export default options => {
-  return wx.setStorageSync(options)
-}
+export default wx.setStorageSync

@@ -1,3 +1,1 @@
-export default options => {
-  return wx.getUserInfo(options)
-}
+export default wx.getUserInfo
