@@ -2,6 +2,12 @@
   background-color: map-get($colors, c1);
   border-bottom: 1px solid map-get($colors, c4);
 
+  @include e(title) {
+    display: flex
+  }
+  @include e(content) {
+    height: px2rpx(200px);
+  }
   @include e(item) {
     @include text--middle(px2rpx(80px));
 

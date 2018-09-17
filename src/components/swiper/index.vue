@@ -48,7 +48,8 @@
         this.current = e.mp.detail.current
       },
       handleClick () {}
-    }
+    },
+    mounted () {}
   }
 </script>
 
