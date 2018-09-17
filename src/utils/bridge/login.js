@@ -1,3 +1,3 @@
 export default options => {
-  return wx.request(options)
+  return wx.login(options)
 }
