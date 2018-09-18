@@ -36,25 +36,28 @@ export default {
                 // 已经授权，可以直接调用 getUserInfo 获取头像昵称
                 wx.getUserInfo({
                   success: res => {
-                    console.log('ok', res)
+                    let userInfo = res.userInfo
+                    // console.log('ok', userInfo)
                     let userParam = {
                       code: code,
                       user: res.userInfo,
                       iv: res.iv,
                       encryptedData: res.encryptedData
                     }
-                    this.$bridge
-                      .request({
-                        method: 'POST',
-                        url: 'signin/weixin',
-                        dataType: 'json',
-                        data: userParam
-                      })
+                    this.$request({
+                      requiresAuth: false,
+                      method: 'POST',
+                      url: 'signin/weixin',
+                      dataType: 'json',
+                      data: userParam
+                    })
                       .then(res => {
                         if (res.data.code === 0) {
                           let token = res.data.data[0].token
-                          wx.setStorageSync('token', token)
+                          this.$auth.login({ user: userInfo, token: token })
                         }
+                      }).catch(err => {
+                        console.log(err)
                       })
                     // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
                     // 所以此处加入 callback 以防止这种情况
@@ -74,7 +77,6 @@ export default {
     }
   },
   onGetUserInfo (e) {
-    console.log(e)
     if (e.detail.rawData) {
       this.onGetUserInfo()
     } else {

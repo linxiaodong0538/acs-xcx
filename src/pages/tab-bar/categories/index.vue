@@ -1,16 +1,16 @@
 <template>
   <div class="p-tab-bar-categories">
-    <ul class="pb-category-list u-cf u-tac">
+    <ul class="pb-category-list u-cf">
       <li
-        v-for="(item, index) in [0, 1, 2, 3, 4, 5, 6, 7]"
+        v-for="(item, index) in categories"
         :key="index"
         class="pb-category-list__item u-fs28 u-tac"
         :class="{ 'is-active': index === current }"
         @click="handleSelect(index)">
-        {{ item }} - 情感
+        {{ item.name }}
       </li>
     </ul>
-    <div class="c-panel">
+    <!-- <div class="c-panel">
       <div class="c-panel__body c-list">
         <div
           v-for="(item, index) in [0, 1, 2, 3]"
@@ -25,23 +25,42 @@
             src="http://localhost:88/demos/pages/tab-bar/index/list/1.jpg" />
         </div>
       </div>
-    </div>
+    </div> -->
+    <panel></panel>
   </div>
 </template>
 
 <script>
+  import Panel from '@/components/panel'
   export default {
+    components: {
+      Panel
+    },
     created () {
     },
     data () {
       return {
+        categories: [],
         current: 0
       }
     },
     methods: {
       handleSelect (index) {
         this.current = index
+      },
+      async categoriesData () {
+        let token = this.$auth.get()['token']
+        let result = await this.$request({
+          requiresAuth: true,
+          url: 'category',
+          data: { token }
+        })
+        this.categories = result.data.data[0]
+        console.log(this.categories)
       }
+    },
+    mounted () {
+      this.categoriesData()
     }
   }
 </script>
