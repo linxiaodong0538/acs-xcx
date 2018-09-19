@@ -1,9 +1,7 @@
 <template>
   <div class="p-tab-bar-my">
     <div class="pb-user">
-      <image
-        class="pb-user__avatar"
-        src="http://localhost:88/demos/pages/tab-bar/my/avatar.jpg" />
+      <image class="pb-user__avatar" src="http://localhost:88/demos/pages/tab-bar/my/avatar.jpg" />
       <div class="pb-user__name u-c1 u-fs26 u-lh-1 u-tac">发顺丰的说法</div>
     </div>
     <div class="o-box u-mb-14">
@@ -32,17 +30,12 @@
     </div>
     <div class="c-panel">
       <div class="c-panel__body c-list">
-        <div
-          v-for="(item, index) in [0]"
-          :key="index"
-          class="c-list__item">
+        <div v-for="(item, index) in [0]" :key="index" class="c-list__item">
           <div class="c-list__title u-c3 u-fs30 u-lh-1 u-fwb u-to">{{ item }} - 是啊啊电风扇发是啊啊电风扇发是啊啊电风扇发是啊啊电风扇发</div>
           <div class="c-list__desc u-c5 u-fs22 u-lh-1 u-to">胜多负少的</div>
           <div class="c-list__price u-c2 u-fs26 u-lh-1 u-fwb">¥11</div>
           <div class="c-list__addon u-c5 u-fs22 u-lh-1">11人已测</div>
-          <image
-            class="c-list__image u-vc"
-            src="http://localhost:88/demos/pages/tab-bar/index/list/1.jpg" />
+          <image class="c-list__image u-vc" src="http://localhost:88/demos/pages/tab-bar/index/list/1.jpg" />
         </div>
         <div class="o-box pb-order u-c5 u-fs22 u-lh-1">
           <div class="pb-order__no">
@@ -58,22 +51,32 @@
 </template>
 
 <script>
-  export default {
-    created () {
-    },
-    data () {
-      return {
-        tabs: ['全部测试', '已完成', '草稿箱'],
-        tabContents: ['内容一', '内容二', '内容三'],
-        current: 0
-      }
-    },
-    methods: {
-      tab (index) {
-        this.current = index
-      }
+export default {
+  created () {},
+  data () {
+    return {
+      tabs: ['全部测试', '已完成', '草稿箱'],
+      tabContents: ['内容一', '内容二', '内容三'],
+      current: 0
     }
+  },
+  methods: {
+    tab (index) {
+      this.current = index
+    },
+    async myData () {
+      // let token = this.$auth.get()['token']
+      let result = await this.$request({
+        requiresAuth: true,
+        url: 'project/detail/1'
+      })
+      console.log(result)
+    }
+  },
+  mounted () {
+    this.myData()
   }
+}
 </script>
 
 <style lang="scss" src="./styles.scss"></style>

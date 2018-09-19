@@ -30,9 +30,9 @@
     <div class="c-panel">
       <div class="c-panel__head m-underline">
         <div class="c-panel__title u-c3 u-fs36 u-fwb">朋友都在测</div>
-        <div class="c-panel__more u-c5 u-fs26 u-vc">更多</div>
+        <div class="c-panel__more u-c5 u-fs26 u-vc" @click="targetUrl">更多</div>
       </div>
-      <div class="c-panel__body c-list">
+      <!-- <div class="c-panel__body c-list">
         <div
           v-for="(item, index) in homes.friends"
           :key="index"
@@ -45,13 +45,15 @@
             class="c-list__image u-vc"
             src="http://localhost:88/demos/pages/tab-bar/index/list/1.jpg" />
         </div>
-      </div>
+      </div> -->
+      <Panel :paneldata="homes.friends" ></Panel>
     </div>
   </div>
 </template>
 
 <script>
   import Swiper from '@/components/swiper'
+  import Panel from '@/components/panel'
 
   export default {
     data () {
@@ -60,7 +62,8 @@
       }
     },
     components: {
-      Swiper
+      Swiper,
+      Panel
     },
     created () {
       console.log(111111111)
@@ -75,6 +78,11 @@
         })
         this.homes = result.data.data[0]
         console.log(this.homes)
+      },
+      targetUrl () {
+        this.$bridge.switchTab({
+          url: '/pages/tab-bar/categories/main'
+        })
       }
     },
     mounted () {
