@@ -17,7 +17,8 @@
               v-for="(item, index) in homes.banner"
               :key="index"
               class="c-list1__item"
-              @click="zrcsUrl"
+              :data-id="item.id"
+              @click="hotTestUrl($event)"
               >
               <image
                 class="c-list1__image"
@@ -72,11 +73,10 @@
     },
     methods: {
       async homeData () {
-        let token = this.$auth.get()['token']
+        // let token = this.$auth.get()['token']
         let result = await this.$request({
           requiresAuth: true,
-          url: 'index',
-          data: { token }
+          url: 'index'
         })
         this.homes = result.data.data[0]
         console.log(this.homes)
@@ -86,10 +86,11 @@
           url: '/pages/tab-bar/categories/main'
         })
       },
-      zrcsUrl () {
-        console.log(1)
+      hotTestUrl (e) {
+        console.log(e)
+        let id = e.currentTarget.dataset.id
         wx.navigateTo({
-          url: '/pages/pay-test/main'
+          url: '/pages/detail/main?id= ' + id + ''
         })
       }
     },

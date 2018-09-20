@@ -1,0 +1,46 @@
+@import "../../styles/utils/index";
+
+@include p(detail) {
+  @include pb(banner) {
+    @include size(100%, px2rpx(400px));
+
+    display: block;
+  }
+
+  @include pb(title) {
+    padding: px2rpx(30px);
+  }
+
+  @include pb(subtitle) {
+    @include padding(px2rpx(20px), null, px2rpx(37px));
+  }
+
+  @include pb(body) {
+    padding-bottom: px2rpx(41px);
+    line-height: px2rpx(42px);
+  }
+
+  @include pb(price) {
+    padding-bottom: px2rpx(30px);
+  }
+
+  @include pb(buttons) {
+    padding-bottom: px2rpx(40px);
+  }
+
+  @include pb(notice) {
+    @include padding(px2rpx(30px), null, px2rpx(30px));
+
+    @include e(title) {
+      @include text--middle(px2rpx(30px));
+
+      border-left: px2rpx(9px) map-get($colors, c2) solid;
+      padding-left: px2rpx(9px);
+      margin-bottom: px2rpx(30px);
+    }
+
+    @include e(body) {
+      line-height: px2rpx(44px);
+    }
+  }
+}

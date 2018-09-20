@@ -64,19 +64,9 @@ export default {
   methods: {
     tab (index) {
       this.current = index
-    },
-    async myData () {
-      // let token = this.$auth.get()['token']
-      let result = await this.$request({
-        requiresAuth: true,
-        url: 'project/detail/1'
-      })
-      console.log(result)
     }
   },
-  mounted () {
-    this.myData()
-  }
+  mounted () {}
 }
 </script>
 

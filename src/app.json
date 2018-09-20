@@ -32,8 +32,8 @@
     ]
   },
   "pages": [
-    "pages/pay-test/main",
     "pages/login/main",
+    "pages/detail/main",
     "pages/tab-bar/my/main",
     "pages/tab-bar/categories/main",
     "pages/tab-bar/index/main",

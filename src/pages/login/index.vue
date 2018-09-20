@@ -46,12 +46,13 @@ export default {
           dataType: 'json',
           data: userParam
         })
+        console.log(22, res)
         if (res.data.code === 0) {
           const token = res.data.data[0].token
           this.$auth.login({ user: userInfo, token: token })
         }
         wx.switchTab({
-          // url: '/pages/tab-bar/index/main'
+          url: '/pages/tab-bar/index/main'
         })
       }
     }
