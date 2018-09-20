@@ -1,0 +1,12 @@
+@import '../../styles/utils/index';
+
+@include p(pay-test) {
+    @include pb(picture) {
+        width: 100%;
+        height: px2rpx(300px);
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
