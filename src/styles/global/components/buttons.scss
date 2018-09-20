@@ -1,4 +1,14 @@
-@include c(button-1) {
+@include o(button1-group) {
+  .is-left {
+    margin-right: px2rpx(15px);
+  }
+
+  .is-right {
+    margin-left: px2rpx(15px);
+  }
+}
+
+@include c(button1) {
   @include text--middle(px2rpx(80px));
 
   width: px2rpx(330px);
@@ -6,4 +16,5 @@
   background-color: map-get($colors, c2);
   color: map-get($colors, c3);
   font-size: map-get($font-sizes, fs32);
+  border-radius: px2rpx(6px);
 }
