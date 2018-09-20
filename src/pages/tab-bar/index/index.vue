@@ -26,7 +26,7 @@
           </div>
         </scroll-view>
       </div>
-    </div>
+    </div>      
     <div class="c-panel">
       <div class="c-panel__head m-underline">
         <div class="c-panel__title u-c3 u-fs36 u-fwb">朋友都在测</div>
@@ -46,7 +46,7 @@
             src="http://localhost:88/demos/pages/tab-bar/index/list/1.jpg" />
         </div>
       </div> -->
-      <Panel :paneldata="homes.friends" ></Panel>
+      <Panel :paneldata="homes.friends"></Panel>
     </div>
   </div>
 </template>

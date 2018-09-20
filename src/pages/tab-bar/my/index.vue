@@ -1,6 +1,6 @@
 <template>
   <div class="p-tab-bar-my">
-    <div class="pb-user">
+      <div class="pb-user">
       <image class="pb-user__avatar" src="http://localhost:88/demos/pages/tab-bar/my/avatar.jpg" />
       <div class="pb-user__name u-c1 u-fs26 u-lh-1 u-tac">发顺丰的说法</div>
     </div>
@@ -16,7 +16,8 @@
         </div>
         <div class="c-list2__item is-link">
           <div class="c-list2__icon c-icon m-record"></div>
-          <div class="c-list2__title">使用好人卡获取记录</div>
+          <div class="c-list2__title">使用好人卡获取记录
+      </div>
         </div>
       </div>
     </div>
