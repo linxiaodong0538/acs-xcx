@@ -16,7 +16,9 @@
             <div
               v-for="(item, index) in homes.banner"
               :key="index"
-              class="c-list1__item">
+              class="c-list1__item"
+              @click="zrcsUrl"
+              >
               <image
                 class="c-list1__image"
                 src="http://localhost:88/demos/pages/tab-bar/index/list1/1.jpg" />
@@ -30,7 +32,7 @@
     <div class="c-panel">
       <div class="c-panel__head m-underline">
         <div class="c-panel__title u-c3 u-fs36 u-fwb">朋友都在测</div>
-        <div class="c-panel__more u-c5 u-fs26 u-vc" @click="targetUrl">更多</div>
+        <div class="c-panel__more u-c5 u-fs26 u-vc" @click="moreUrl">更多</div>
       </div>
       <!-- <div class="c-panel__body c-list">
         <div
@@ -66,7 +68,7 @@
       Panel
     },
     created () {
-      console.log(111111111)
+      // console.log(111111111)
     },
     methods: {
       async homeData () {
@@ -79,9 +81,15 @@
         this.homes = result.data.data[0]
         console.log(this.homes)
       },
-      targetUrl () {
+      moreUrl () {
         this.$bridge.switchTab({
           url: '/pages/tab-bar/categories/main'
+        })
+      },
+      zrcsUrl () {
+        console.log(1)
+        wx.navigateTo({
+          url: '/pages/pay-test/main'
         })
       }
     },

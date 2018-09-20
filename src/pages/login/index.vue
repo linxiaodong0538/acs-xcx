@@ -24,56 +24,36 @@ export default {
     return {}
   },
   methods: {
-    onGetUserInfo (e) {
-      console.log(e)
-      wx.login({
-        success: res => {
-          const code = res.code
-          // 查看是否授权
-          wx.getSetting({
-            success: res => {
-              if (res.authSetting['scope.userInfo'] === true) {
-                // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-                wx.getUserInfo({
-                  success: res => {
-                    let userInfo = res.userInfo
-                    // console.log('ok', userInfo)
-                    let userParam = {
-                      code: code,
-                      user: res.userInfo,
-                      iv: res.iv,
-                      encryptedData: res.encryptedData
-                    }
-                    this.$request({
-                      requiresAuth: false,
-                      method: 'POST',
-                      url: 'signin/weixin',
-                      dataType: 'json',
-                      data: userParam
-                    })
-                      .then(res => {
-                        if (res.data.code === 0) {
-                          let token = res.data.data[0].token
-                          this.$auth.login({ user: userInfo, token: token })
-                        }
-                      }).catch(err => {
-                        console.log(err)
-                      })
-                    // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-                    // 所以此处加入 callback 以防止这种情况
-                    if (this.userInfoReadyCallback) {
-                      this.userInfoReadyCallback(res)
-                    }
-                    wx.switchTab({
-                      url: '/pages/tab-bar/index/main'
-                    })
-                  }
-                })
-              }
-            }
-          })
+    async onGetUserInfo (e) {
+      let login = await this.$bridge.login({})
+      const code = login.code
+      // 查看是否授权
+      const setting = await this.$bridge.getSetting({})
+      if (setting.authSetting['scope.userInfo'] === true) {
+        // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+        let userMsg = await this.$bridge.getUserInfo({})
+        let userInfo = userMsg.userInfo
+        const userParam = {
+          code: code,
+          user: userMsg.userInfo,
+          iv: userMsg.iv,
+          encryptedData: userMsg.encryptedData
         }
-      })
+        let res = await this.$request({
+          requiresAuth: false,
+          method: 'POST',
+          url: 'signin/weixin',
+          dataType: 'json',
+          data: userParam
+        })
+        if (res.data.code === 0) {
+          const token = res.data.data[0].token
+          this.$auth.login({ user: userInfo, token: token })
+        }
+        wx.switchTab({
+          // url: '/pages/tab-bar/index/main'
+        })
+      }
     }
   },
   onGetUserInfo (e) {
