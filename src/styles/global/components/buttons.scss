@@ -1,0 +1,9 @@
+@include c(button-1) {
+  @include text--middle(px2rpx(80px));
+
+  width: px2rpx(330px);
+  text-align: center;
+  background-color: map-get($colors, c2);
+  color: map-get($colors, c3);
+  font-size: map-get($font-sizes, fs32);
+}
