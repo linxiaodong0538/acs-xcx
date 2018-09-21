@@ -51,8 +51,11 @@ export default {
           const token = res.data.data[0].token
           this.$auth.login({ user: userInfo, token: token })
         }
-        wx.switchTab({
-          url: '/pages/tab-bar/index/main'
+        // wx.switchTab({
+        //   url: '/pages/tab-bar/index/main'
+        // })
+        wx.navigateTo({
+          url: '/pages/topic/main'
         })
       }
     }

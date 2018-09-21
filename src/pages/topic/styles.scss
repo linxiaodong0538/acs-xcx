@@ -1,0 +1,17 @@
+@import "../../styles/utils/index";
+
+@include p(swiper) {
+    @include position--absolute(0,0,0,0);
+}
+@include pb(siwper-wrapper){
+    @include size(85%, 80%);
+    @include position--absolute(50%,null,null,50%);
+    transform: translate(-50%,-50%);
+    border-radius: px2rpx(10px);
+    ox-shadow: rgba(0, 0, 0, 0.1) px2rpx(1px) px2rpx(10px) px2rpx(50px);
+}
+@include pb(siwper-indicator) {
+    @include size(px2rpx(140px), px2rpx(40px));
+    @include position--absolute(null,null,5%,50%);
+    transform: translateX(-50%);
+}

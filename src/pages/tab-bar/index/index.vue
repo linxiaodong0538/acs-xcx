@@ -96,6 +96,19 @@
     },
     mounted () {
       this.homeData()
+    },
+    onShareAppMessage: function (res) {
+      return {
+        title: '您的好友分享了一张',
+        desc: '测试测杀杀杀杀杀杀杀杀杀',
+        path: 'pages/tab-bar/index/main',
+        success: function (res) {
+          console.log('转发成功')
+        },
+        fail: function (res) {
+          console.log('转发失败:')
+        }
+      }
     }
   }
 </script>
