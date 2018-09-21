@@ -1,6 +1,6 @@
 <template>
     <div class="c-panel">
-        <div class="c-panel__body c-list">
+        <div class="c-panel__body c-list" @click="handleUrl">
             <div v-for="(item, index) in paneldata" :key="index" :data-id="item.id" class="c-list__item" @click="aa($event)">
                 <div class="c-list__title u-c3 u-fs30 u-lh-1 u-fwb u-to">{{ item.title }}</div>
                 <div class="c-list__desc u-c5 u-fs22 u-lh-1 u-to">{{ item.subtitle }}</div>
@@ -25,8 +25,8 @@ export default {
     return {}
   },
   methods: {
-    aa (e) {
-      console.log(e)
+    handleUrl () {
+      this.$emit('answer')
     }
   }
 }

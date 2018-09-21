@@ -14,7 +14,8 @@
       </swiper-item>
     </swiper>
     <div class="pb-siwper-indicator u-tac">
-      <span>{{current + 1}}/{{test.length}}</span>
+      <span class="pb-siwper-indicator__top u-fs40">{{current + 1}}</span>
+      <span class="pb-siwper-indicator__bottom u-fs40 u-c5">{{ pageNum }}</span>
     </div>
   </div>
 </template>
@@ -25,6 +26,11 @@ export default {
     return {
       test: [{title: '测试1测试1'}, {title: '测试2'}, {title: '测试3'}, {title: '测试4'}],
       current: 0
+    }
+  },
+  computed: {
+    pageNum () {
+      return this.test.length
     }
   },
   methods: {

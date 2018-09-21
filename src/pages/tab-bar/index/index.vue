@@ -49,7 +49,7 @@
             src="http://localhost:88/demos/pages/tab-bar/index/list/1.jpg" />
         </div>
       </div> -->
-      <Panel :paneldata="homes.friends"></Panel>
+      <Panel :paneldata="homes.friends" @answer="handleUrl"></Panel>
     </div>
   </div>
 </template>
@@ -91,6 +91,11 @@
         let id = e.currentTarget.dataset.id
         wx.navigateTo({
           url: '/pages/detail/main?id= ' + id + ''
+        })
+      },
+      handleUrl () {
+        wx.navigateTo({
+          url: '/pages/topic/main'
         })
       }
     },

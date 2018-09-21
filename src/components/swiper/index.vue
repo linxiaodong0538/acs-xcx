@@ -18,7 +18,8 @@
       <span
         v-for="(item, index) in indicatorItems"
         :key="index"
-        :class="[ 'cc-indicator__item', { 'is-active': item === current } ]"></span>
+        :class="[ 'cc-indicator__item', { 'is-active': item === current } ]">
+      </span>
     </div>
   </div>
 </template>

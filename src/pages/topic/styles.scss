@@ -8,10 +8,29 @@
     @include position--absolute(50%,null,null,50%);
     transform: translate(-50%,-50%);
     border-radius: px2rpx(10px);
-    ox-shadow: rgba(0, 0, 0, 0.1) px2rpx(1px) px2rpx(10px) px2rpx(50px);
+    box-shadow: rgba(0, 0, 0, 0.1) px2rpx(1px) px2rpx(10px) px2rpx(50px);
 }
 @include pb(siwper-indicator) {
-    @include size(px2rpx(140px), px2rpx(40px));
-    @include position--absolute(null,null,5%,50%);
+    @include size(px2rpx(70px), px2rpx(80px));
+    @include position--absolute(null,null,2%,50%);
     transform: translateX(-50%);
+    &::after {
+        content:"";
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+        height:px2rpx(40px);
+        box-sizing:border-box;
+        border-bottom:1px solid #cdcdcd;
+        transform-origin:bottom center;
+        transform:rotateZ(120deg) scale(1.1);
+    }
+    @include e(top) {
+        @include position--absolute(0,null,null,0);
+    }
+    @include e(bottom) {
+        @include position--absolute(null,0,0,null);
+    }
 }
+
