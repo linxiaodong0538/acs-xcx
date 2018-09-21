@@ -7,6 +7,7 @@ import getUserInfo from './getUserInfo'
 import login from './login'
 import switchTab from './switchTab'
 import navigateTo from './navigateTo'
+import requestPayment from './requestPayment'
 
 export default {
   request,
@@ -17,5 +18,6 @@ export default {
   getUserInfo,
   login,
   switchTab,
-  navigateTo
+  navigateTo,
+  requestPayment
 }
