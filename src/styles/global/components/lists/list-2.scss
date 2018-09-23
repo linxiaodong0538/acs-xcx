@@ -1,4 +1,4 @@
-@include c(list2) {
+@include c(list-2) {
   background-color: map-get($colors, c1);
 
   @include e(item) {
