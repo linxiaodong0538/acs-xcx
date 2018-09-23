@@ -7,15 +7,15 @@
     <div class="o-box u-mb-14">
       <div class="c-list2 u-c3 u-fs28">
         <div class="c-list2__item is-link">
-          <div class="c-list2__icon c-icon m-receive"></div>
+          <div class="c-list2__icon c-icon c-icon--receive"></div>
           <div class="c-list2__title">收到的赠送</div>
         </div>
         <div class="c-list2__item is-link">
-          <div class="c-list2__icon c-icon m-give"></div>
+          <div class="c-list2__icon c-icon c-icon--give"></div>
           <div class="c-list2__title">给好友的赠送记录</div>
         </div>
         <div class="c-list2__item is-link">
-          <div class="c-list2__icon c-icon m-record"></div>
+          <div class="c-list2__icon c-icon c-icon--record"></div>
           <div class="c-list2__title">使用好人卡获取记录
       </div>
         </div>

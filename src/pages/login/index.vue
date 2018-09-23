@@ -9,7 +9,7 @@
       <div class="pb-accredit-wrapper">
         <h2 class="u-fs34">申请获取以下权限</h2>
         <p class="u-fs30 u-c5">获得您的公开信息(昵称,头像等)</p>
-        <button class="u-bg-c2 u-c6" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">授权登陆</button>
+        <button class="u-bg-c2 u-c6" open-type="getUserInfo" @getuserinfo="onGetUserInfo">授权登陆</button>
       </div>
     </div>
   </div>
@@ -25,13 +25,14 @@ export default {
   },
   methods: {
     async onGetUserInfo (e) {
-      let login = await this.$bridge.login({})
+      console.log(e)
+      let login = await this.this.$bridge.login({})
       const code = login.code
       // 查看是否授权
-      const setting = await this.$bridge.getSetting({})
+      const setting = await this.this.$bridge.getSetting({})
       if (setting.authSetting['scope.userInfo'] === true) {
         // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-        let userMsg = await this.$bridge.getUserInfo({})
+        let userMsg = await this.this.$bridge.getUserInfo({})
         let userInfo = userMsg.userInfo
         const userParam = {
           code: code,
@@ -39,7 +40,7 @@ export default {
           iv: userMsg.iv,
           encryptedData: userMsg.encryptedData
         }
-        let res = await this.$request({
+        let res = await this.$bridge.request({
           requiresAuth: false,
           method: 'POST',
           url: 'signin/weixin',

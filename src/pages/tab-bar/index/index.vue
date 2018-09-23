@@ -19,7 +19,7 @@
               class="c-list1__item"
               :data-id="item.id"
               @click="hotTestUrl($event)"
-              >
+            >
               <image
                 class="c-list1__image"
                 src="http://localhost:88/demos/pages/tab-bar/index/list1/1.jpg" />
@@ -29,9 +29,9 @@
           </div>
         </scroll-view>
       </div>
-    </div>      
+    </div>
     <div class="c-panel">
-      <div class="c-panel__head m-underline">
+      <div class="c-panel__head c-panel__head-underline">
         <div class="c-panel__title u-c3 u-fs36 u-fwb">朋友都在测</div>
         <div class="c-panel__more u-c5 u-fs26 u-vc" @click="moreUrl">更多</div>
       </div>
@@ -74,7 +74,7 @@
     methods: {
       async homeData () {
         // let token = this.$auth.get()['token']
-        let result = await this.$request({
+        let result = await this.$bridge.request({
           requiresAuth: true,
           url: 'index'
         })
@@ -82,7 +82,7 @@
         console.log(this.homes)
       },
       moreUrl () {
-        this.$bridge.switchTab({
+        this.this.$bridge.switchTab({
           url: '/pages/tab-bar/categories/main'
         })
       },

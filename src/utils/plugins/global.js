@@ -2,12 +2,12 @@ import time from 'jt-time'
 import consts from '../consts/index'
 import helpers from '../helpers/base'
 import auth from '../auth'
-import wxb from '../bridge'
+import bridge from '../bridge'
 
 export default {
   install (Vue) {
     Vue.prototype.$helpers = helpers
-    Vue.prototype.$wxb = wxb
+    Vue.prototype.$bridge = bridge
     Vue.prototype.$consts = consts
     Vue.prototype.$time = time
     Vue.prototype.$auth = auth

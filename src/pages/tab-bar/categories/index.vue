@@ -30,12 +30,12 @@ export default {
     async gethcData () {
       let token = this.$auth.get()['token']
       let result = await Promise.all([
-        this.$request({
+        this.$bridge.request({
           requiresAuth: true,
           url: 'category',
           data: { token }
         }),
-        this.$request({
+        this.$bridge.request({
           requiresAuth: true,
           url: 'index',
           data: { token }

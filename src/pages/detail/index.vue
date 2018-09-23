@@ -6,12 +6,12 @@
       <div class="pb-subtitle u-c5 u-fs24 u-lh-1 u-tac">{{detailData.subtitle}}</div>
       <div class="pb-body u-c3 u-fs28">{{detailData.description}}</div>
       <div class="pb-price u-c2 u-fs30 u-lh-1 u-tac u-fwb">¥{{detailData.amount}}</div>
-      <div class="pb-buttons o-button1-group o-grid">
+      <div class="pb-buttons o-button-1-group o-grid">
         <div class="o-grid__cell">
-          <div class="c-button1 is-left" @click="we_pay">立刻购买</div>
+          <div class="c-button-1 is-left" @click="we_pay">立刻购买</div>
         </div>
         <div class="o-grid__cell">
-          <div class="c-button1 is-right">使用好人卡</div>
+          <div class="c-button-1 is-right">使用好人卡</div>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@ export default {
   methods: {
     async getDetail () {
       let id = Number(this.$root.$mp.query.id)
-      let result = await this.$request({
+      let result = await this.$bridge.request({
         requiresAuth: true,
         url: 'project/detail/' + id + ''
       })
@@ -42,14 +42,14 @@ export default {
     },
     async we_pay () {
       let token = this.$auth.get()['token']
-      let secretData = await this.$request({
+      let secretData = await this.$bridge.request({
         url: 'paycenter/gobuy?projectid=1',
         data: token
       })
       if (secretData.data.code === 0) {
         let res = secretData.data.data[0].order
         console.log(11111, res)
-        this.$bridge.requestPayment({
+        this.this.$bridge.requestPayment({
           timeStamp: res.timeStamp,
           nonceStr: res.nonceStr,
           package: res.package,
