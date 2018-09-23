@@ -2,7 +2,7 @@ import consts from '../consts/index'
 import wxb from 'wx-bridge'
 import auth from '../auth'
 
-export default (
+export default async (
   {
     method = 'GET',
     baseURL = consts.BASE_URL,
@@ -12,19 +12,15 @@ export default (
     ...otherOptions
   }
 ) => {
-  return new Promise((resolve, reject) => {
-    wxb.request({
-      header: requiresAuth
-        ? {
-          ...headers,
-          Authorization: auth.get()['token']
-        }
-        : headers,
-      method,
-      url: `${baseURL}/${url}`,
-      success: resolve,
-      fail: reject,
-      ...otherOptions
-    })
+  return wxb.request({
+    header: requiresAuth
+      ? {
+        ...headers,
+        Authorization: auth.get()['token']
+      }
+      : headers,
+    method,
+    url: `${baseURL}/${url}`,
+    ...otherOptions
   })
 }

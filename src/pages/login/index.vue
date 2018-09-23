@@ -1,78 +1,61 @@
 <template>
   <div class="p-login">
-    <div class="pb-login-container">
-      <div class="pb-login-wrapper">
-          <div class="pb-login-wrapper__logo">
-            <img src="../../../others/爱测试切图/wx.png" alt="">
-          </div>
-      </div>
-      <div class="pb-accredit-wrapper">
-        <h2 class="u-fs34">申请获取以下权限</h2>
-        <p class="u-fs30 u-c5">获得您的公开信息(昵称,头像等)</p>
-        <button class="u-bg-c2 u-c6" open-type="getUserInfo" @getuserinfo="onGetUserInfo">授权登陆</button>
-      </div>
-    </div>
+    <p class="pb-title u-c3 u-fs34 u-lh-1">申请获取以下权限</p>
+    <p class="pb-desc u-c5 u-fs30 u-lh-1">获得您的公开信息（昵称、头像等）</p>
+    <button
+      class="c-button c-button--1"
+      open-type="getUserInfo"
+      @getuserinfo="handleGetUserInfo">
+      授权登录
+    </button>
   </div>
 </template>
 
 <script>
-export default {
-  async created () {
-    await this.onGetUserInfo()
-  },
-  data () {
-    return {}
-  },
-  methods: {
-    async onGetUserInfo (e) {
-      console.log(e)
-      let login = await this.this.$bridge.login({})
-      const code = login.code
-      // 查看是否授权
-      const setting = await this.this.$bridge.getSetting({})
-      if (setting.authSetting['scope.userInfo'] === true) {
-        // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-        let userMsg = await this.this.$bridge.getUserInfo({})
-        let userInfo = userMsg.userInfo
-        const userParam = {
-          code: code,
-          user: userMsg.userInfo,
-          iv: userMsg.iv,
-          encryptedData: userMsg.encryptedData
+  import { utils } from 'mp-client'
+
+  export default {
+    methods: {
+      async handleGetUserInfo (e) {
+        console.log(e)
+        const { userInfo, iv, encryptedData } = e.mp.detail
+        const loginRes = await this.$bridge.login()
+        const getSettingRes = await this.$bridge.getSetting()
+
+        if (!getSettingRes.authSetting['scope.userInfo']) {
+          this.$bridge.showToast({ title: '您需要授权才能进行下一步的操作' })
+        } else {
+          const siginRes = await this.$bridge.request({
+            requiresAuth: false,
+            method: 'POST',
+            url: 'signin/weixin',
+            dataType: 'json',
+            data: {
+              code: loginRes.code,
+              user: userInfo,
+              iv,
+              encryptedData
+            }
+          })
+
+          if (siginRes.data.code === 0) {
+            this.$auth.login({
+              user: userInfo,
+              token: siginRes.data.data[0].token
+            })
+          }
+
+          const url = '/' + utils.url.decode(this.$mp.query.from)
+
+          try {
+            await this.$bridge.navigateTo({ url })
+          } catch (e) {
+            this.$bridge.switchTab({ url })
+          }
         }
-        let res = await this.$bridge.request({
-          requiresAuth: false,
-          method: 'POST',
-          url: 'signin/weixin',
-          dataType: 'json',
-          data: userParam
-        })
-        console.log(22, res)
-        if (res.data.code === 0) {
-          const token = res.data.data[0].token
-          this.$auth.login({ user: userInfo, token: token })
-        }
-        wx.switchTab({
-          url: '/pages/tab-bar/index/main'
-        })
-        // wx.navigateTo({
-        //   url: '/pages/topic/main'
-        // })
       }
     }
-  },
-  onGetUserInfo (e) {
-    if (e.detail.rawData) {
-      this.onGetUserInfo()
-    } else {
-      wx.showToast({
-        title: '您需要授权才能进行下一步的操作,请点击登陆授权',
-        icon: 'none',
-        duration: 2000
-      })
-    }
   }
-}
 </script>
 
 <style lang="scss" src="./styles.scss"></style>

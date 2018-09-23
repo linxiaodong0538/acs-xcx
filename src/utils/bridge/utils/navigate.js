@@ -5,7 +5,7 @@ export default fn => {
   return (
     {
       url,
-      requiresLogin = true
+      requiresLogin = false
     }
   ) => {
     return new Promise((resolve, reject) => {

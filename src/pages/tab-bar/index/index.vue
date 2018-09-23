@@ -75,7 +75,6 @@
       async homeData () {
         // let token = this.$auth.get()['token']
         let result = await this.$bridge.request({
-          requiresAuth: true,
           url: 'index'
         })
         this.homes = result.data.data[0]

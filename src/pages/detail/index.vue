@@ -35,7 +35,6 @@ export default {
     async getDetail () {
       let id = Number(this.$root.$mp.query.id)
       let result = await this.$bridge.request({
-        requiresAuth: true,
         url: 'project/detail/' + id + ''
       })
       this.detailData = result.data.data[0]

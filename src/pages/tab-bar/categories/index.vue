@@ -31,12 +31,10 @@ export default {
       let token = this.$auth.get()['token']
       let result = await Promise.all([
         this.$bridge.request({
-          requiresAuth: true,
           url: 'category',
           data: { token }
         }),
         this.$bridge.request({
-          requiresAuth: true,
           url: 'index',
           data: { token }
         })
