@@ -1,4 +1,4 @@
-import bridge from './bridge'
+import wxb from 'wx-bridge'
 
 const USER = 'user'
 const TOKEN = 'token'
@@ -10,8 +10,8 @@ export default {
    */
   get () {
     return {
-      [USER]: bridge.getStorageSync(USER),
-      [TOKEN]: bridge.getStorageSync(TOKEN)
+      [USER]: wxb.getStorageSync(USER),
+      [TOKEN]: wxb.getStorageSync(TOKEN)
     }
   },
 
@@ -21,16 +21,16 @@ export default {
    * @param {string} token 登录 token
    */
   login ({ user, token }) {
-    bridge.setStorageSync(USER, user)
-    bridge.setStorageSync(TOKEN, `Bearer ${token}`)
+    wxb.setStorageSync(USER, user)
+    wxb.setStorageSync(TOKEN, `Bearer ${token}`)
   },
 
   /**
    * 登出
    */
   logout () {
-    bridge.removeStorageSync(USER)
-    bridge.removeStorageSync(TOKEN)
+    wxb.removeStorageSync(USER)
+    wxb.removeStorageSync(TOKEN)
   },
 
   /**
@@ -38,6 +38,6 @@ export default {
    * @return {boolean}
    */
   loggedIn () {
-    return !!bridge.getStorageSync(USER) && !!bridge.getStorageSync(TOKEN)
+    return !!wxb.getStorageSync(USER) && !!wxb.getStorageSync(TOKEN)
   }
 }

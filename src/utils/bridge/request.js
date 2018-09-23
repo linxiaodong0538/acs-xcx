@@ -1,18 +1,19 @@
-import consts from './consts/index'
-import bridge from './bridge'
-import auth from './auth'
+import consts from '../consts/index'
+import wxb from 'wx-bridge'
+import auth from '../auth'
 
 export default (
   {
     method = 'GET',
-    url,
+    baseURL = consts.BASE_URL,
+    url = '',
     headers = {},
     requiresAuth = true,
     ...otherOptions
   }
 ) => {
   return new Promise((resolve, reject) => {
-    bridge.request({
+    wxb.request({
       header: requiresAuth
         ? {
           ...headers,
@@ -20,7 +21,7 @@ export default (
         }
         : headers,
       method,
-      url: `${consts.BASE_URL}/${url}`,
+      url: `${baseURL}/${url}`,
       success: resolve,
       fail: reject,
       ...otherOptions

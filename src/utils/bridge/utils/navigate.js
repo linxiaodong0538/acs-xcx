@@ -1,5 +1,5 @@
-import consts from './consts'
-import auth from './auth'
+import consts from '../../consts/index'
+import auth from '../../auth'
 
 export default fn => {
   return (
