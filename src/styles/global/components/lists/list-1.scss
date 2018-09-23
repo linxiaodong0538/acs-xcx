@@ -1,11 +1,11 @@
-@include c(list1-scroll) {
-  width: 100%;
-}
-
-@include c(list1) {
+@include c(list-1) {
   @include clearfix;
 
   padding-left: px2rpx(30px);
+
+  @include e(wrap) {
+    width: 100%;
+  }
 
   @include e(item) {
     width: px2rpx(225px);

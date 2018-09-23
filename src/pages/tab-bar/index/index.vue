@@ -10,21 +10,20 @@
       </div>
       <div class="c-panel__body">
         <scroll-view
-          class="c-list1-scroll"
+          class="c-list-1__wrap"
           scroll-x>
-          <div class="c-list1" :style="{ width: (225 + 10) * 4 + 20 + 'rpx' }">
+          <div class="c-list-1" :style="{ width: (225 + 10) * 4 + 20 + 'rpx' }">
             <div
               v-for="(item, index) in homes.banner"
               :key="index"
-              class="c-list1__item"
+              class="c-list-1__item"
               :data-id="item.id"
-              @click="hotTestUrl($event)"
-            >
+              @click="hotTestUrl($event)">
               <image
-                class="c-list1__image"
+                class="c-list-1__image"
                 src="http://localhost:88/demos/pages/tab-bar/index/list1/1.jpg" />
-              <div class="c-list1__title u-c3 u-fs28 u-lh-fs34 u-fwb">{{ item.title }}</div>
-              <div class="c-list1__price u-c2 u-fs26 u-lh-1 u-fwb">￥{{ item.amount }}</div>
+              <div class="c-list-1__title u-c3 u-fs28 u-lh-fs34 u-fwb">{{ item.title }}</div>
+              <div class="c-list-1__price u-c2 u-fs26 u-lh-1 u-fwb">￥{{ item.amount }}</div>
             </div>
           </div>
         </scroll-view>
@@ -81,19 +80,19 @@
         console.log(this.homes)
       },
       moreUrl () {
-        this.this.$bridge.switchTab({
+        this.$bridge.switchTab({
           url: '/pages/tab-bar/categories/main'
         })
       },
       hotTestUrl (e) {
         console.log(e)
         let id = e.currentTarget.dataset.id
-        wx.navigateTo({
-          url: '/pages/detail/main?id= ' + id + ''
+        this.$bridge.navigateTo({
+          url: '/pages/detail/main?id=' + id + ''
         })
       },
       handleUrl () {
-        wx.navigateTo({
+        this.$bridge.navigateTo({
           url: '/pages/topic/main'
         })
       }

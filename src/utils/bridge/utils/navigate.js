@@ -8,15 +8,14 @@ export default fn => {
       requiresLogin = false
     }
   ) => {
-    return new Promise((resolve, reject) => {
-      if (requiresLogin && !auth.loggedIn()) {
-        wx[fn]({ url: consts.LOGIN_PAGE })
-      } else {
-        wx[fn]({
-          url,
-          success: resolve,
-          fail: reject
-        })
+    return new Promise(async (resolve, reject) => {
+      try {
+        const navigateRes = requiresLogin && !auth.loggedIn()
+          ? await wx[fn]({ url: consts.LOGIN_PAGE })
+          : await wx[fn]({ url })
+        resolve(navigateRes)
+      } catch (e) {
+        reject(e)
       }
     })
   }
