@@ -4,6 +4,7 @@ import navigateTo from './navigateTo'
 import redirectTo from './redirectTo'
 import switchTab from './switchTab'
 import reLaunch from './reLaunch'
+import showToast from './showToast'
 
 export default {
   ...wxb,
@@ -11,5 +12,6 @@ export default {
   navigateTo,
   redirectTo,
   switchTab,
-  reLaunch
+  reLaunch,
+  showToast
 }

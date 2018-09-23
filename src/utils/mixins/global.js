@@ -11,7 +11,7 @@ export default {
   },
 
   onLoad () {
-    if (this.$mp.page) {
+    if (this.$mp && this.$mp.page) {
       const { route } = this.$mp.page
 
       if ('/' + route !== consts.LOGIN_PAGE && !auth.loggedIn()) {

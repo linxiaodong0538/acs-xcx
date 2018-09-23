@@ -6,7 +6,7 @@
       class="c-button c-button--1"
       open-type="getUserInfo"
       @getuserinfo="handleGetUserInfo">
-      授权登录
+      登录并授权
     </button>
   </div>
 </template>
@@ -17,13 +17,12 @@
   export default {
     methods: {
       async handleGetUserInfo (e) {
-        console.log(e)
         const { userInfo, iv, encryptedData } = e.mp.detail
         const loginRes = await this.$bridge.login()
         const getSettingRes = await this.$bridge.getSetting()
 
         if (!getSettingRes.authSetting['scope.userInfo']) {
-          this.$bridge.showToast({ title: '您需要授权才能进行下一步的操作' })
+          this.$bridge.showToast({ title: '您需要授权才能进行下一步的操作，请点击登录并授权' })
         } else {
           const siginRes = await this.$bridge.request({
             requiresAuth: false,
@@ -50,7 +49,7 @@
           try {
             await this.$bridge.navigateTo({ url })
           } catch (e) {
-            this.$bridge.switchTab({ url })
+            await this.$bridge.switchTab({ url })
           }
         }
       }
