@@ -1,21 +1,22 @@
-# my-project
+# 基于 mpVue 开发微信小程序
 
-> A Mpvue project
+## 链接
 
-## Build Setup
+- [mpVue](http://mpvue.com)
+- [Flyio](https://wendux.github.io/dist/#/doc/flyio/readme)
+
+## 命令
 
 ``` bash
-# install dependencies
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:8080
+# 开发调试
 npm run dev
 
-# build for production with minification
+# 构建
 npm run build
 
-# build for production and view the bundle analyzer report
+# 构建并输出构建情况
 npm run build --report
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

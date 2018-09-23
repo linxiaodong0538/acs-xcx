@@ -19,7 +19,8 @@
     "mpvue": "^1.0.11",
     "mpvue-router-patch": "^0.2.1",
     "sass-utils": "^1.0.16",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "wx-bridge": "0.0.4"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",

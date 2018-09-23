@@ -6,7 +6,7 @@ export default (
   {
     method = 'GET',
     url,
-    header = {},
+    headers = {},
     requiresAuth = true,
     ...otherOptions
   }
@@ -14,8 +14,11 @@ export default (
   return new Promise((resolve, reject) => {
     bridge.request({
       header: requiresAuth
-        ? { Authorization: auth.get()['token'] }
-        : {},
+        ? {
+          ...headers,
+          Authorization: auth.get()['token']
+        }
+        : headers,
       method,
       url: `${consts.BASE_URL}/${url}`,
       success: resolve,

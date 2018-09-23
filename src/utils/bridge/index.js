@@ -1,3 +1,4 @@
+import isMP from './isMP'
 import request from './request'
 import setStorageSync from './setStorageSync'
 import getStorageSync from './getStorageSync'
@@ -10,6 +11,7 @@ import navigateTo from './navigateTo'
 import requestPayment from './requestPayment'
 
 export default {
+  isMP,
   request,
   setStorageSync,
   getStorageSync,
