@@ -1,8 +1,8 @@
 <template>
   <div class="p-tab-bar-index">
     <Swiper :items="[
-    { image: 'http://localhost:88/demos/pages/tab-bar/index/swiper/1.jpg' },
-    { image: 'http://localhost:88/demos/pages/tab-bar/index/swiper/2.jpg' }
+    { image: consts.CDN_URL + '/demos/pages/tab-bar/index/swiper/1.jpg' },
+    { image: consts.CDN_URL + '/demos/pages/tab-bar/index/swiper/2.jpg' }
     ]" />
     <div class="c-panel">
       <div class="c-panel__head">
@@ -21,7 +21,7 @@
               @click="hotTestUrl($event)">
               <image
                 class="c-list-1__image"
-                src="http://localhost:88/demos/pages/tab-bar/index/list1/1.jpg" />
+                :src="consts.CDN_URL + '/demos/pages/tab-bar/index/list1/1.jpg'" />
               <div class="c-list-1__title u-c3 u-fs28 u-lh-fs34 u-fwb">{{ item.title }}</div>
               <div class="c-list-1__price u-c2 u-fs26 u-lh-1 u-fwb">￥{{ item.amount }}</div>
             </div>

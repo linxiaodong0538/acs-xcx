@@ -2,7 +2,7 @@
   <div class="p-detail">
     <image
       class="pb-banner"
-      src="http://localhost:88/demos/pages/detail/banner.png" />
+      :src="consts.CDN_URL + '/demos/pages/detail/banner.png'" />
     <div class="o-box u-mb-14">
       <div class="pb-title u-c3 u-fs34 u-lh-1 u-tac u-fwb">{{ detail.title }}</div>
       <div class="pb-subtitle u-c5 u-fs24 u-lh-1 u-tac">{{ detail.subtitle }}</div>

@@ -1,7 +1,9 @@
 <template>
   <div class="p-tab-bar-my">
-      <div class="pb-user">
-      <image class="pb-user__avatar" src="http://localhost:88/demos/pages/tab-bar/my/avatar.jpg" />
+    <div class="pb-user">
+      <image
+        class="pb-user__avatar"
+        :src="consts.CDN_URL + '/demos/pages/tab-bar/my/avatar.jpg'" />
       <div class="pb-user__name u-c1 u-fs26 u-lh-1 u-tac">发顺丰的说法</div>
     </div>
     <div class="o-box u-mb-14">
@@ -17,16 +19,20 @@
         <div class="c-list-2__item is-link">
           <div class="c-list-2__icon c-icon c-icon--record"></div>
           <div class="c-list-2__title">使用好人卡获取记录
-      </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="o-box">
       <div class="c-tabs u-c3 u-fs26">
         <ul class="c-tabs__title">
-          <li class="c-tabs__item" :class="{'is-active': current == index}" v-for="(item, index) in tabs" :key="index" @click="tab(index)">{{item}}</li>
+          <li class="c-tabs__item" :class="{'is-active': current == index}" v-for="(item, index) in tabs" :key="index"
+              @click="tab(index)">{{item}}
+          </li>
         </ul>
-        <div class="c-tabs__content" v-show="index == current" v-for='(itemCont,index) in tabContents' :key="index">{{itemCont}}</div>
+        <div class="c-tabs__content" v-show="index == current" v-for='(itemCont,index) in tabContents' :key="index">
+          {{itemCont}}
+        </div>
       </div>
     </div>
     <div class="c-panel">
@@ -36,7 +42,9 @@
           <div class="c-list__desc u-c5 u-fs22 u-lh-1 u-to">胜多负少的</div>
           <div class="c-list__price u-c2 u-fs26 u-lh-1 u-fwb">¥11</div>
           <div class="c-list__addon u-c5 u-fs22 u-lh-1">11人已测</div>
-          <image class="c-list__image u-vc" src="http://localhost:88/demos/pages/tab-bar/index/list/1.jpg" />
+          <image
+            class="c-list__image u-vc"
+            :src="consts.CDN_URL + '88/demos/pages/tab-bar/index/list/1.jpg'" />
         </div>
         <div class="o-box pb-order u-c5 u-fs22 u-lh-1">
           <div class="pb-order__no">
@@ -52,22 +60,22 @@
 </template>
 
 <script>
-export default {
-  created () {},
-  data () {
-    return {
-      tabs: ['全部测试', '已完成', '草稿箱'],
-      tabContents: ['内容一', '内容二', '内容三'],
-      current: 0
-    }
-  },
-  methods: {
-    tab (index) {
-      this.current = index
-    }
-  },
-  mounted () {}
-}
+  export default {
+    created () {},
+    data () {
+      return {
+        tabs: ['全部测试', '已完成', '草稿箱'],
+        tabContents: ['内容一', '内容二', '内容三'],
+        current: 0
+      }
+    },
+    methods: {
+      tab (index) {
+        this.current = index
+      }
+    },
+    mounted () {}
+  }
 </script>
 
 <style lang="scss" src="./styles.scss"></style>

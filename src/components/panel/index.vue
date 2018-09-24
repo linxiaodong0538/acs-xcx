@@ -6,7 +6,7 @@
                 <div class="c-list__desc u-c5 u-fs22 u-lh-1 u-to">{{ item.subtitle }}</div>
                 <div class="c-list__price u-c2 u-fs26 u-lh-1 u-fwb">￥{{ item.amount }}</div>
                 <div class="c-list__addon u-c5 u-fs22 u-lh-1">{{ item.usetimes }}人已测</div>
-                <image class="c-list__image u-vc" src="http://localhost:88/demos/pages/tab-bar/index/list/1.jpg" />
+                <image class="c-list__image u-vc" :src="consts.CDN_URL + '/demos/pages/tab-bar/index/list/1.jpg'" />
             </div>
         </div>
     </div>
