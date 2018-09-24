@@ -14,9 +14,9 @@ npm install
 # 开发调试
 npm run dev
 
+# 启动图片服务，请先将 http-server 安装到全局
+cd cdn && http-server -p 88
+
 # 构建
 npm run build
-
-# 构建并输出构建情况
-npm run build --report
 ```

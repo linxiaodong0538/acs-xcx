@@ -32,6 +32,7 @@
     ]
   },
   "pages": [
+    "pages/demo/main",
     "pages/tab-bar/index/main",
     "pages/login/main",
     "pages/detail/main",
