@@ -5,10 +5,10 @@
       :key="index"
       class="c-list__item"
       @click="handleClick">
-      <div class="c-list__title c3 fs30 u-lh-1 u-fwb u-to">{{ item.title }}</div>
-      <div class="c-list__desc c5 fs22 u-lh-1 u-to">{{ item.subtitle }}</div>
-      <div class="c-list__price c2 fs26 u-lh-1 u-fwb">￥{{ item.amount }}</div>
-      <div class="c-list__addon c5 fs22 u-lh-1">{{ item.usetimes }}人已测</div>
+      <div class="c-list__title c3 fs30 u-fwb">{{ item.title }}</div>
+      <div class="c-list__subtitle c5 fs22">{{ item.subtitle }}</div>
+      <div class="c-list__price c2 fs26 u-fwb">￥{{ item.amount }}</div>
+      <div class="c-list__addon c5 fs22">{{ item.usetimes }}人已测</div>
       <image
         class="c-list__image u-vc"
         :src="item.thumb" />

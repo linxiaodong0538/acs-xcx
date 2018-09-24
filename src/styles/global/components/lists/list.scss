@@ -7,9 +7,12 @@
     box-sizing: border-box;
     height: px2rpx(220px);
     border-bottom: 1px solid map-get($colors, c4);
+    line-height: 100%;
   }
 
-  @include e(title, desc) {
+  @include e(title, subtitle) {
+    @include text--overflow;
+
     width: px2rpx(750px / 2 - 30px);
   }
 
@@ -17,7 +20,7 @@
     padding-bottom: px2rpx(16px);
   }
 
-  @include e(desc) {
+  @include e(subtitle) {
     padding-bottom: px2rpx(60px);
   }
 
@@ -33,7 +36,7 @@
     right: px2rpx(160px + 30px);
   }
 
-  @include e(image){
+  @include e(image) {
     @include size(px2rpx(160px), px2rpx(160px));
 
     right: 0;

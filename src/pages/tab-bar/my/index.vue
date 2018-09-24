@@ -38,10 +38,10 @@
     <div class="c-panel">
       <div class="c-panel__body c-list">
         <div v-for="(item, index) in [0]" :key="index" class="c-list__item">
-          <div class="c-list__title c3 fs30 u-lh-1 u-fwb u-to">{{ item }} - 是啊啊电风扇发是啊啊电风扇发是啊啊电风扇发是啊啊电风扇发</div>
-          <div class="c-list__desc c5 fs22 u-lh-1 u-to">胜多负少的</div>
-          <div class="c-list__price c2 fs26 u-lh-1 u-fwb">¥11</div>
-          <div class="c-list__addon c5 fs22 u-lh-1">11人已测</div>
+          <div class="c-list__title c3 fs30 u-fwb">{{ item }} - 是啊啊电风扇发是啊啊电风扇发是啊啊电风扇发是啊啊电风扇发</div>
+          <div class="c-list__subtitle c5 fs22">胜多负少的</div>
+          <div class="c-list__price c2 fs26 u-fwb">¥11</div>
+          <div class="c-list__addon c5 fs22">11人已测</div>
           <image
             class="c-list__image u-vc"
             :src="consts.CDN_URL + '88/demos/pages/tab-bar/index/list/1.jpg'" />

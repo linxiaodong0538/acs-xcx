@@ -5,7 +5,8 @@
         v-for="(item, index) in categories"
         :key="index"
         class="pb-category-list__item fs28 u-tac"
-        :class="{ 'is-active': index === current }" @click="handleSelect(index)">
+        :class="{ 'is-active': index === current }"
+        @click="handleSelect(index)">
         {{ item.name }}
       </li>
     </ul>
