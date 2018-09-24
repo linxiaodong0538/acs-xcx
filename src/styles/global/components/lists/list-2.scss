@@ -8,7 +8,7 @@
 
     @include s(is-link) {
       background: {
-        image: image-url("components/list2/more.png");
+        image: image-url("commons/more.png");
         size: px2rpx(10px) px2rpx(20px);
         repeat: no-repeat;
         position: right center;
