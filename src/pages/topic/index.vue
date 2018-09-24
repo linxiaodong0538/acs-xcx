@@ -14,8 +14,8 @@
       </swiper-item>
     </swiper>
     <div class="pb-siwper-indicator u-tac">
-      <span class="pb-siwper-indicator__top u-fs40">{{current + 1}}</span>
-      <span class="pb-siwper-indicator__bottom u-fs40 u-c5">{{ pageNum }}</span>
+      <span class="pb-siwper-indicator__top fs40">{{current + 1}}</span>
+      <span class="pb-siwper-indicator__bottom fs40 c5">{{ pageNum }}</span>
     </div>
   </div>
 </template>

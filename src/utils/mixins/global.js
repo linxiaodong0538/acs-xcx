@@ -21,5 +21,12 @@ export default {
     }
   },
 
-  methods: {}
+  methods: {
+    navigateTo (url) {
+      this.$bridge.navigateTo({ url })
+    },
+    switchTab (url) {
+      this.$bridge.switchTab({ url })
+    }
+  }
 }

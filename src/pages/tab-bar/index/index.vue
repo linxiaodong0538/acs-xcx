@@ -1,29 +1,27 @@
 <template>
   <div class="p-tab-bar-index">
-    <Swiper :items="[
-    { image: consts.CDN_URL + '/demos/pages/tab-bar/index/swiper/1.jpg' },
-    { image: consts.CDN_URL + '/demos/pages/tab-bar/index/swiper/2.jpg' }
-    ]" />
+    <CSwiper :items="detail.banner" />
     <div class="c-panel">
       <div class="c-panel__head">
-        <div class="c-panel__title u-c3 u-fs36 u-fwb">最热测试</div>
+        <div class="c-panel__title c3 fs36 u-fwb">最热测试</div>
       </div>
       <div class="c-panel__body">
         <scroll-view
           class="c-list-1__wrap"
           scroll-x>
-          <div class="c-list-1" :style="{ width: (225 + 10) * 4 + 20 + 'rpx' }">
+          <div
+            class="c-list-1"
+            :style="{ width: (225 + 10) * detail.hots.length + 20 + 'rpx' }">
             <div
-              v-for="(item, index) in homes.banner"
+              v-for="(item, index) in detail.hots"
               :key="index"
               class="c-list-1__item"
-              :data-id="item.id"
-              @click="hotTestUrl($event)">
+              @click="navigateTo('/pages/detail/main?id=' + item.id)">
               <image
                 class="c-list-1__image"
-                :src="consts.CDN_URL + '/demos/pages/tab-bar/index/list1/1.jpg'" />
-              <div class="c-list-1__title u-c3 u-fs28 u-lh-fs34 u-fwb">{{ item.title }}</div>
-              <div class="c-list-1__price u-c2 u-fs26 u-lh-1 u-fwb">￥{{ item.amount }}</div>
+                :src="item.thumb" />
+              <div class="c-list-1__title c3 fs28 u-lh-fs34 u-fwb">{{ item.title }}</div>
+              <div class="c-list-1__price c2 fs26 u-lh-1 u-fwb">￥{{ item.amount }}</div>
             </div>
           </div>
         </scroll-view>
@@ -31,74 +29,50 @@
     </div>
     <div class="c-panel">
       <div class="c-panel__head c-panel__head-underline">
-        <div class="c-panel__title u-c3 u-fs36 u-fwb">朋友都在测</div>
-        <div class="c-panel__more u-c5 u-fs26 u-vc" @click="moreUrl">更多</div>
-      </div>
-      <!-- <div class="c-panel__body c-list">
+        <div class="c-panel__title c3 fs36 u-fwb">朋友都在测</div>
         <div
-          v-for="(item, index) in homes.friends"
-          :key="index"
-          class="c-list__item">
-          <div class="c-list__title u-c3 u-fs30 u-lh-1 u-fwb u-to">{{ item.title }}</div>
-          <div class="c-list__desc u-c5 u-fs22 u-lh-1 u-to">{{ item.subtitle }}</div>
-          <div class="c-list__price u-c2 u-fs26 u-lh-1 u-fwb">￥{{ item.amount }}</div>
-          <div class="c-list__addon u-c5 u-fs22 u-lh-1">{{ item.usetimes }}</div>
-          <image
-            class="c-list__image u-vc"
-            src="http://localhost:88/demos/pages/tab-bar/index/list/1.jpg" />
+          class="c-panel__more c5 fs26 u-vc"
+          @click="switchTab('/pages/tab-bar/categories/main')">
+          更多
         </div>
-      </div> -->
-      <Panel :paneldata="homes.friends" @answer="handleUrl"></Panel>
+      </div>
+      <div class="c-panel__body">
+        {{ detail.friends.length }}
+        <CList
+          :items="detail.friends"
+          @clickitem="navigateTo('/pages/topic/main')" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-  import Swiper from '@/components/swiper'
-  import Panel from '@/components/panel'
+  import CSwiper from '@/components/swiper'
+  import CList from '@/components/list'
 
   export default {
     data () {
       return {
-        homes: []
+        detail: {
+          banner: [],
+          hots: [],
+          friends: []
+        }
       }
     },
     components: {
-      Swiper,
-      Panel
-    },
-    created () {
-      // console.log(111111111)
+      CSwiper,
+      CList
     },
     methods: {
-      async homeData () {
-        // let token = this.$auth.get()['token']
-        let result = await this.$bridge.request({
-          url: 'index'
-        })
-        this.homes = result.data.data[0]
-        console.log(this.homes)
-      },
-      moreUrl () {
-        this.$bridge.switchTab({
-          url: '/pages/tab-bar/categories/main'
-        })
-      },
-      hotTestUrl (e) {
-        console.log(e)
-        let id = e.currentTarget.dataset.id
-        this.$bridge.navigateTo({
-          url: '/pages/detail/main?id=' + id + ''
-        })
-      },
-      handleUrl () {
-        this.$bridge.navigateTo({
-          url: '/pages/topic/main'
-        })
+      async getDetail () {
+        const result = await this.$bridge.request({ url: 'index' })
+
+        this.detail = result.data.data[0]
       }
     },
     mounted () {
-      this.homeData()
+      this.getDetail()
     },
     onShareAppMessage: function (res) {
       return {

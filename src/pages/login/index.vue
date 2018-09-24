@@ -1,7 +1,7 @@
 <template>
   <div class="p-login">
-    <p class="pb-title u-c3 u-fs34 u-lh-1">申请获取以下权限</p>
-    <p class="pb-desc u-c5 u-fs30 u-lh-1">获得您的公开信息（昵称、头像等）</p>
+    <p class="pb-title c3 fs34 u-lh-1">申请获取以下权限</p>
+    <p class="pb-desc c5 fs30 u-lh-1">获得您的公开信息（昵称、头像等）</p>
     <button
       class="c-button c-button--1"
       open-type="getUserInfo"

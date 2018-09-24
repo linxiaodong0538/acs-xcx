@@ -1,6 +1,6 @@
 <template>
   <div class="p-demo">
-    <div class="c-no-content u-c5 u-fs32">暂无内容</div>
+    <div class="c-no-content c5 fs32">暂无内容</div>
   </div>
 </template>
 

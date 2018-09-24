@@ -1,5 +1,5 @@
 @each $key, $value in $font-sizes {
-  .u-#{$key} {
+  .#{$key} {
     font-size: $value;
   }
 
@@ -9,7 +9,7 @@
 }
 
 @each $key, $value in $colors {
-  .u-#{$key} {
+  .#{$key} {
     color: $value;
   }
 

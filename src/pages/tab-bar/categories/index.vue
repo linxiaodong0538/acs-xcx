@@ -1,53 +1,53 @@
 <template>
   <div class="p-tab-bar-categories">
     <ul class="pb-category-list u-cf">
-      <li v-for="(item, index) in categories" :key="index" class="pb-category-list__item u-fs28 u-tac" :class="{ 'is-active': index === current }" @click="handleSelect(index)">
+      <li
+        v-for="(item, index) in categories"
+        :key="index"
+        class="pb-category-list__item fs28 u-tac"
+        :class="{ 'is-active': index === current }" @click="handleSelect(index)">
         {{ item.name }}
       </li>
     </ul>
-    <panel :paneldata="panel"></panel>
+    <div class="c-panel">
+      <div class="c-panel__body">
+        <CList :items="panel" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Panel from '@/components/panel'
-export default {
-  components: {
-    Panel
-  },
-  created () {},
-  data () {
-    return {
-      categories: [],
-      panel: [],
-      current: 0
-    }
-  },
-  methods: {
-    handleSelect (index) {
-      this.current = index
+  import CList from '@/components/list'
+
+  export default {
+    components: {
+      CList
     },
-    async gethcData () {
-      let token = this.$auth.get()['token']
-      let result = await Promise.all([
-        this.$bridge.request({
-          url: 'category',
-          data: { token }
-        }),
-        this.$bridge.request({
-          url: 'index',
-          data: { token }
-        })
-      ])
-      console.log(result)
-      this.categories = result[0].data.data[0]
-      this.panel = result[1].data.data[0].friends
+    data () {
+      return {
+        categories: [],
+        panel: [],
+        current: 0
+      }
+    },
+    methods: {
+      handleSelect (index) {
+        this.current = index
+      },
+      async gethcData () {
+        const allRes = await Promise.all([
+          this.$bridge.request({ url: 'category' }),
+          this.$bridge.request({ url: 'index' })
+        ])
+        this.categories = allRes[0].data.data[0]
+        this.panel = allRes[1].data.data[0].friends
+      }
+    },
+    mounted () {
+      this.gethcData()
     }
-  },
-  mounted () {
-    this.gethcData()
   }
-}
 </script>
 
 <style lang="scss" src="./styles.scss"></style>

@@ -1,6 +1,7 @@
 <template>
   <div class="c-swiper">
     <swiper
+      class="c-swiper__swiper"
       :circular="true"
       :autoplay="true"
       :interval="2500"
@@ -9,9 +10,13 @@
         v-for="(item, index) in items"
         :key="index">
         <image
+          class="c-swiper__image"
           mode="aspectFill"
-          :src="item.image"
-          @click="handleClick(item)" />
+          :src="item.thumb" />
+        <div class="c-swiper__titles c1">
+          <div class="c-swiper__title fs40">{{ item.title }}</div>
+          <div class="c-swiper__subtitle fs30">{{ item.subtitle }}</div>
+        </div>
       </swiper-item>
     </swiper>
     <div class="cc-indicator u-lh-1">
@@ -47,8 +52,7 @@
     methods: {
       handleChange (e) {
         this.current = e.mp.detail.current
-      },
-      handleClick () {}
+      }
     },
     mounted () {}
   }
