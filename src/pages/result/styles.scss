@@ -1,0 +1,22 @@
+@import "../../styles/utils/index";
+
+@include p(result) {
+  @include pb(avatar) {
+    @include padding(px2rpx(38px), null, px2rpx(38px));
+  }
+
+  @include pb(title) {
+    line-height: 100%;
+    font-weight: bold;
+  }
+
+  @include pb(body) {
+    @include padding(px2rpx(38px), null, px2rpx(38px));
+
+    line-height: px2rpx(50px);
+  }
+
+  @include pb(buttons) {
+    @include padding(px2rpx(40px), null, px2rpx(40px));
+  }
+}

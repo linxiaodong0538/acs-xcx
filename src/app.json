@@ -32,12 +32,13 @@
     ]
   },
   "pages": [
-    "pages/demo/main",
+    "pages/result/main",
     "pages/tab-bar/index/main",
     "pages/login/main",
     "pages/detail/main",
     "pages/tab-bar/my/main",
     "pages/tab-bar/categories/main",
-    "pages/topic/main"
+    "pages/topic/main",
+    "pages/demo/main"
   ]
 }

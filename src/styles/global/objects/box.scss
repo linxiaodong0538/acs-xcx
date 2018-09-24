@@ -2,4 +2,8 @@
   @include padding(null, px2rpx(30px), null, px2rpx(30px));
 
   background-color: map-get($colors, c1);
+
+  @include m(ghost) {
+    background: none;
+  }
 }

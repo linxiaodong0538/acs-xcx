@@ -9,14 +9,14 @@
 
 ``` bash
 # 安装依赖
-npm install
+$ npm install
 
 # 开发调试
-npm run dev
+$ npm run dev
 
 # 启动图片服务，请先将 http-server 安装到全局
-cd cdn && http-server -p 88
+$ cd cdn && http-server -p 88
 
 # 构建
-npm run build
+$ npm run build
 ```

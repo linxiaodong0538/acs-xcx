@@ -5,6 +5,7 @@ import auth from '../auth'
 export default {
   data () {
     return {
+      consts,
       loaded: false,
       isIPhoneX: false
     }
