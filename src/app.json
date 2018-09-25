@@ -32,8 +32,8 @@
     ]
   },
   "pages": [
-    "pages/tab-bar/categories/main",
     "pages/tab-bar/index/main",
+    "pages/tab-bar/categories/main",
     "pages/result/main",
     "pages/login/main",
     "pages/detail/main",

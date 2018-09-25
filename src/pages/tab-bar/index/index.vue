@@ -37,7 +37,6 @@
         </div>
       </div>
       <div class="c-panel__body">
-        {{ detail.friends.length }}
         <CList
           :items="detail.friends"
           @clickitem="navigateTo('/pages/topic/main')" />
