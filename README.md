@@ -20,3 +20,7 @@ $ cd cdn && http-server -p 88
 # 构建
 $ npm run build
 ```
+
+## mpVue 的一些坑
+- [为什么有些组件名不可以使用](http://mpvue.com/qa/#_3)；
+- 无法使用过滤器；
