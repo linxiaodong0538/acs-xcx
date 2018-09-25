@@ -1,8 +1,8 @@
-import consts from '../consts/index'
 import wxb from 'wx-bridge'
+import consts from '../consts/index'
 import auth from '../auth'
 
-export default async (
+export default (
   {
     method = 'GET',
     baseURL = consts.BASE_URL,

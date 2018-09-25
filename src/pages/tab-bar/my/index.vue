@@ -44,7 +44,7 @@
           <div class="c-list__addon c5 fs22">11人已测</div>
           <image
             class="c-list__image u-vc"
-            :src="consts.CDN_URL + '88/demos/pages/tab-bar/index/list/1.jpg'" />
+            :src="consts.CDN_URL + '/demos/pages/tab-bar/index/list/1.jpg'" />
         </div>
         <div class="o-box pb-order c5 fs22 u-lh-1">
           <div class="pb-order__no">
