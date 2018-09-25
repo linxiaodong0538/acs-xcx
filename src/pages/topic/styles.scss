@@ -9,6 +9,28 @@
     transform: translate(-50%,-50%);
     border-radius: px2rpx(10px);
     box-shadow: rgba(0, 0, 0, 0.1) px2rpx(1px) px2rpx(10px) px2rpx(50px);
+    @include e (content) {
+        @include size(100%, 100%);
+    }
+    @include e (title) {
+        padding: px2rpx(50px);
+    }
+    @include e (radio-group) {
+        display: flex;
+        flex-direction: column;
+        padding: px2rpx(50px);
+        radio {
+            transform:scale(0.7);
+        }
+    }
+
+    @include e (radio) {
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+        border-bottom: 1px solid #cdcdcd;
+        padding: px2rpx(20px) 0;
+    }
 }
 @include pb(siwper-indicator) {
     @include size(px2rpx(70px), px2rpx(80px));
