@@ -66,7 +66,6 @@
     methods: {
       async getDetail () {
         const result = await this.$bridge.request({ url: 'index' })
-
         this.detail = result.data.data[0]
       }
     },

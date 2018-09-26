@@ -45,7 +45,7 @@
         this.panel = allRes[1].data.data[0].friends
       }
     },
-    mounted () {
+    onLoad () {
       this.gethcData()
     }
   }

@@ -1,22 +1,16 @@
 <template>
-    <div class="p-swiper">
-    <swiper
-      :circular="true"
-      :autoplay="false"
-      :interval="2500"
-      @change="handleChange" class="pb-siwper-wrapper u-bg-c1">
-      <swiper-item
-        v-for="(item, index) in topicData.questions"
-        :key="index">
-          <div class="pb-siwper-wrapper__content">
-            <p class="u-tac pb-siwper-wrapper__title fs36">{{item.subject}}</p>
-            <radio-group class="pb-siwper-wrapper__radio-group" @change="radioChange">
-              <label class="pb-siwper-wrapper__radio" v-for="(options, i) in item.options" :key="i">
-                <span class="fs32">{{options.option}}</span>
-                <radio :value="options.option" :checked="true" color="#FED02F" :data-id="options.id"/> 
-              </label>
-            </radio-group>
-          </div>
+  <div class="p-swiper">
+    <swiper :circular="true" :autoplay="false" :interval="2500" @change="handleChange" class="pb-siwper-wrapper u-bg-c1">
+      <swiper-item v-for="(item, index) in topicData.questions" :key="index">
+        <div class="pb-siwper-wrapper__content">
+          <p class="u-tac pb-siwper-wrapper__title fs36">{{item.subject}}</p>
+          <radio-group class="pb-siwper-wrapper__radio-group" >
+            <label class="pb-siwper-wrapper__radio" v-for="(options, i) in item.options" :key="i">
+              <span class="fs32">{{options.option}}</span>
+              <radio :value="options.option"  color="#FED02F" :data-id="options.nextquesid" @click="handleRadio"/>
+            </label>
+          </radio-group>
+        </div>
       </swiper-item>
     </swiper>
     <div class="pb-siwper-indicator u-tac">
@@ -36,7 +30,7 @@ export default {
   },
   computed: {
     pageNum () {
-      return this.topicData.questions.length
+      return this.topicData.questions ? this.topicData.questions.length : 0
     }
   },
   methods: {
@@ -51,12 +45,23 @@ export default {
         this.topicData = res.data.data[0]
       }
     },
-    radioChange (e) {
-      console.log(e.mp)
+    handleRadio (next) {
+      // console.log(this.topicData)
+      let currenid = next.currentTarget.dataset.id
+      // console.log(nextid)
+      let lx = this.topicData.questions.filter((item) => {
+        for (let next of item.options) {
+          return next.id === currenid
+        }
+      })
+      lx.forEach(e => {
+        console.log(e)
+        console.log(this.topicData.questions)
+      })
     }
   },
-  async created () {
-    await this.getAnswer()
+  mounted () {
+    this.getAnswer()
   }
 }
 </script>
