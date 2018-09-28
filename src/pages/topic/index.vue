@@ -7,7 +7,7 @@
           <radio-group class="pb-siwper-wrapper__radio-group" >
             <label class="pb-siwper-wrapper__radio" v-for="(options, i) in item.options" :key="i">
               <span class="fs32">{{options.option}}</span>
-              <radio :value="options.option"  color="#FED02F" :data-id="options.nextquesid" @click="handleRadio"/>
+              <radio :value="options.option"  color="#FED02F" :data-nextid="options.nextquesid" :data-answerid="options.nextquesid" @click="handleSelect(index,$event)"/>
             </label>
           </radio-group>
         </div>
@@ -25,7 +25,8 @@ export default {
   data () {
     return {
       topicData: {},
-      current: 0
+      current: 0,
+      questionNum: 0
     }
   },
   computed: {
@@ -43,21 +44,38 @@ export default {
       })
       if (res.data.code === 0) {
         this.topicData = res.data.data[0]
+        this.questionNum = res.data.data[0].questions.length
       }
     },
-    handleRadio (next) {
-      // console.log(this.topicData)
-      let currenid = next.currentTarget.dataset.id
-      // console.log(nextid)
-      let lx = this.topicData.questions.filter((item) => {
-        for (let next of item.options) {
-          return next.id === currenid
+    handleSelect (index, event) {
+      // console.log(event)
+      // 下一题对应的nextquesid
+      let currenId = event.currentTarget.dataset.nextid
+      // 测试结果id
+      let answerId = event.currentTarget.dataset.answerid
+      // 当前题目id不要匹配
+      let exclud = this.topicData.questions.slice(index, index + 1)
+      let selfId = exclud[0].id
+      // 返回对应下一题的对象
+      let oQuestion = this.topicData.questions.filter((next, i, arr) => {
+        return currenId === next.id && currenId !== selfId
+      })
+      oQuestion.forEach(obj => {
+        // 如果当前题目数量小于等于原始的题目数量 则改变下一题 插入新匹配的一题
+        if (this.topicData.questions.length <= this.questionNum ) {
+          this.topicData.questions.splice(index + 1, 1, obj)
         }
       })
-      lx.forEach(e => {
-        console.log(e)
-        console.log(this.topicData.questions)
-      })
+      if (answerId) {
+        wx.showModal({
+          title: '测试结束是否提交',
+          content: 'cccccccccccccccc',
+          cancelColor: '#FED02F',
+          success: e => {
+            console.log(e)
+          }
+        })
+      }
     }
   },
   mounted () {
