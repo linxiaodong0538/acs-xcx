@@ -62,7 +62,7 @@ export default {
       })
       oQuestion.forEach(obj => {
         // 如果当前题目数量小于等于原始的题目数量 则改变下一题 插入新匹配的一题
-        if (this.topicData.questions.length <= this.questionNum ) {
+        if (this.topicData.questions.length <= this.questionNum) {
           this.topicData.questions.splice(index + 1, 1, obj)
         }
       })
