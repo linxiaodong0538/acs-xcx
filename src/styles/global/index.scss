@@ -19,4 +19,5 @@ page {
   box-sizing: border-box;
   font-family: $font-family-mobile;
   background-color: map-get($colors, c6);
+  height: 100%;
 }

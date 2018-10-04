@@ -25,4 +25,11 @@
   @include m(record) {
     background-image: image-url("components/icon/record.png");
   }
+
+  // logo
+  @include m(logo) {
+    @include size(px2rpx(150px), px2rpx(150px));
+
+    background-image: image-url("components/icon/logo.png");
+  }
 }

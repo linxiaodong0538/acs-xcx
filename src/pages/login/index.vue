@@ -1,9 +1,14 @@
 <template>
   <div class="p-login">
-    <p class="pb-title c3 fs34 u-lh-1">申请获取以下权限</p>
-    <p class="pb-desc c5 fs30 u-lh-1">获得您的公开信息（昵称、头像等）</p>
+    <div class="pb-logo">
+      <div class="c-icon c-icon--logo"></div>
+      <div class="pb-logo__title fs36">牛测试</div>
+    </div>
+    <p class="pb-tip c5 fs27">
+      您暂未获取微信授权，将无法正常使用小程序的功能。如需要正常使用，请点击“授权登录”按钮，打开头像，昵称等信息的授权。
+    </p>
     <button
-      class="c-button c-button--1"
+      class="c-button c-button--2"
       open-type="getUserInfo"
       @getuserinfo="handleGetUserInfo">
       登录并授权
