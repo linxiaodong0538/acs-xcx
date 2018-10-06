@@ -1,0 +1,63 @@
+@include c(card-list) {
+  padding-top: px2rpx(15px);
+
+  @include c(card) {
+    @include block--center;
+  }
+}
+
+@include c(card) {
+  @include size(px2rpx(724px), px2rpx(354px));
+
+  position: relative;
+  margin-bottom: px2rpx(10px);
+  background: {
+    image: image-url("components/card/bg.png");
+    size: 100% 100%;
+  }
+
+  @include e(head) {
+    @include position--absolute(px2rpx(9px), null, null, px2rpx(30px));
+    @include text--middle(px2rpx(70px));
+
+    font-weight: bold;
+  }
+
+  @include e(foot) {
+    @include position--absolute(null, null, px2rpx(9px), px2rpx(30px));
+    @include text--middle(px2rpx(70px));
+  }
+
+  @include e(body) {
+    @include position--absolute(50%, null, null, px2rpx(30px));
+
+    transform: translateY(-50%);
+  }
+
+  @include o(media) {
+    @include e(image) {
+      @include size(px2rpx(160px), px2rpx(160px));
+
+      display: block;
+    }
+
+    @include e(body) {
+      padding-left: px2rpx(30px);
+    }
+  }
+
+  @include e(title, price) {
+    line-height: 100%;
+    font-weight: bold;
+  }
+
+  @include e(title) {
+    @include padding(px2rpx(38px), null, px2rpx(30px));
+  }
+
+  @include e(button) {
+    @include position--absolute(50%, null, null, px2rpx(527px));
+
+    transform: translateY(-50%);
+  }
+}
