@@ -2,9 +2,7 @@
 
 @include p(tab-bar-categories) {
   @include pb(category-list) {
-    @include margin(px2rpx(28px), null, px2rpx(28px - 10px));
-
-    padding-left: px2rpx(10px);
+    @include padding(px2rpx(28px), null, px2rpx(28px - 10px), px2rpx(20px));
 
     @include e(item) {
       @include margin(null, px2rpx(10px), px2rpx(10px));

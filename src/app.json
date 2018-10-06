@@ -32,14 +32,14 @@
     ]
   },
   "pages": [
-    "pages/ask-for/finish/main",
     "pages/tab-bar/index/main",
+    "pages/tab-bar/categories/main",
     "pages/tab-bar/my/give/main",
     "pages/tab-bar/my/receive/main",
     "pages/tab-bar/my/good-man-card/main",
-    "pages/ask-for/index/main",
     "pages/login/main",
-    "pages/tab-bar/categories/main",
+    "pages/ask-for/finish/main",
+    "pages/ask-for/index/main",
     "pages/result/main",
     "pages/detail/main",
     "pages/tab-bar/my/index/main",
