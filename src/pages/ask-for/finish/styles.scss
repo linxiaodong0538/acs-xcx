@@ -1,4 +1,24 @@
 @import "../../../styles/utils/index";
 
 @include p(ask-for-finish) {
+  padding-top: px2rpx(20px);
+
+  @include pb(head) {
+    @include block--center;
+    @include size(px2rpx(713px), px2rpx(452px));
+
+    position: relative;
+    background: {
+      image: image-url("pages/ask-for/finish/bg.png");
+      size: 100% 100%;
+    }
+  }
+
+  @include pb(avatar) {
+    @include position--absolute(null, null, px2rpx(22px), px2rpx(30px));
+  }
+
+  @include pb(panel) {
+    box-shadow: 0 px2rpx(-8px) px2rpx(8px) rgba(map-get($colors, c5), .2);
+  }
 }

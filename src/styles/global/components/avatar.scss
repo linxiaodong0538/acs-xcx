@@ -36,4 +36,19 @@
       }
     }
   }
+
+  // 1
+  @include m(3) {
+    @include c(avatar) {
+      @include e(image) {
+        @include circle(px2rpx(80px));
+      }
+
+      @include e(text) {
+        width: px2rpx(550px);
+        left: px2rpx(80px + 27px);
+        line-height: map-get($font-sizes, fs38);
+      }
+    }
+  }
 }
