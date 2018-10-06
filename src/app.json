@@ -24,7 +24,7 @@
         "selectedIconPath": "static/app/tab-bar/categories-active.png"
       },
       {
-        "pagePath": "pages/tab-bar/my/home/main",
+        "pagePath": "pages/tab-bar/my/index/main",
         "text": "我",
         "iconPath": "static/app/tab-bar/my.png",
         "selectedIconPath": "static/app/tab-bar/my-active.png"
@@ -37,12 +37,12 @@
     "pages/tab-bar/my/give/main",
     "pages/tab-bar/my/receive/main",
     "pages/tab-bar/my/good-man-card/main",
-    "pages/ask-for/home/main",
+    "pages/ask-for/index/main",
     "pages/login/main",
     "pages/tab-bar/categories/main",
     "pages/result/main",
     "pages/detail/main",
-    "pages/tab-bar/my/home/main",
+    "pages/tab-bar/my/index/main",
     "pages/topic/main",
     "pages/demo/main"
   ]

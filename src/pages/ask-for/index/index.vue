@@ -1,5 +1,5 @@
 <template>
-  <div class="p-ask-for-home">
+  <div class="p-ask-for-index">
     <div class="pb-avatar c-avatar c-avatar--2">
       <image
         class="c-avatar__image"

@@ -1,6 +1,6 @@
 @import "../../../styles/utils/index";
 
-@include p(ask-for-home) {
+@include p(ask-for-index) {
   @include pb(avatar) {
     @include padding(px2rpx(50px), null, px2rpx(40px));
 
@@ -12,7 +12,7 @@
     @include size(px2rpx(711px), px2rpx(935px));
 
     background: {
-      image: image-url("pages/ask-for/home/card/bg.png");
+      image: image-url("pages/ask-for/index/card/bg.png");
       size: 100% 100%;
     }
 
