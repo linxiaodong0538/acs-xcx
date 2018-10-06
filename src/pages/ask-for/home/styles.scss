@@ -1,4 +1,43 @@
 @import "../../../styles/utils/index";
 
 @include p(ask-for-home) {
+  @include pb(avatar) {
+    @include padding(px2rpx(50px), null, px2rpx(40px));
+
+    margin-left: px2rpx(40px);
+  }
+
+  @include pb(card) {
+    @include block--center;
+    @include size(px2rpx(711px), px2rpx(935px));
+
+    background: {
+      image: image-url("pages/ask-for/home/card/bg.png");
+      size: 100% 100%;
+    }
+
+    @include e(body) {
+      @include padding(px2rpx(70px), null, px2rpx(110px));
+      @include block--center;
+
+      width: px2rpx(580px);
+      line-height: map-get($colors, fs50);
+    }
+  }
+
+  @include pb(options) {
+
+    @include e(item) {
+      @include block--center;
+      @include text--middle(px2rpx(90px));
+
+      margin-bottom: px2rpx(40px);
+      width: px2rpx(610px);
+      border-radius: px2rpx(45px);
+      background-color: map-get($colors, c2);
+      color: map-get($colors, c1);
+      text-align: center;
+      font-size: map-get($font-sizes, fs28);
+    }
+  }
 }

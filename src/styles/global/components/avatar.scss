@@ -19,7 +19,20 @@
       }
 
       @include e(text) {
-        left: px2rpx(80px + 21px);
+        left: px2rpx(80px + 20px);
+      }
+    }
+  }
+
+  // 2
+  @include m(2) {
+    @include c(avatar) {
+      @include e(image) {
+        @include circle(px2rpx(100px));
+      }
+
+      @include e(text) {
+        left: px2rpx(100px + 20px);
       }
     }
   }

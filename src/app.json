@@ -32,9 +32,11 @@
     ]
   },
   "pages": [
+    "pages/ask-for/home/main",
+    "pages/ask-for/finish/main",
+    "pages/tab-bar/index/main",
     "pages/tab-bar/my/receive/main",
     "pages/tab-bar/my/give/main",
-    "pages/tab-bar/index/main",
     "pages/login/main",
     "pages/tab-bar/categories/main",
     "pages/result/main",

@@ -1,5 +1,5 @@
 <template>
-  <div class="p-ask-for-home">
+  <div class="p-ask-for-finish">
   </div>
 </template>
 
@@ -7,4 +7,4 @@
   export default {}
 </script>
 
-<style lang="scss" src="styles.scss"></style>
+<style lang="scss" src="./styles.scss"></style>
