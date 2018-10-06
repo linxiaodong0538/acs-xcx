@@ -20,7 +20,9 @@
           <div class="c-list-2__icon c-icon c-icon--give"></div>
           <div class="c-list-2__title">给好友的赠送记录</div>
         </div>
-        <div class="c-list-2__item is-link">
+        <div
+          class="c-list-2__item is-link"
+          @click="navigateTo('/pages/tab-bar/my/good-man-card/main')">
           <div class="c-list-2__icon c-icon c-icon--record"></div>
           <div class="c-list-2__title">使用好人卡获取记录</div>
         </div>

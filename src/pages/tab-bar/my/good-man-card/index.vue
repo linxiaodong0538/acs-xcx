@@ -15,8 +15,7 @@
           </div>
         </div>
         <div class="c-card__foot c3 fs22">
-          赠送时间：2018-07-29 12:22
-          <div class="c-card__button c-button c-button--3">立即测试</div>
+          获取时间：2018-07-29 12:22
         </div>
       </li>
       <li class="c-card">
@@ -33,8 +32,7 @@
           </div>
         </div>
         <div class="c-card__foot c3 fs22">
-          赠送时间：2018-07-29 12:22
-          <div class="c-card__button c-button c-button--3">立即测试</div>
+          获取时间：2018-07-29 12:22
         </div>
       </li>
     </ul>
