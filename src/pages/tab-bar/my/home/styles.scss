@@ -1,6 +1,6 @@
 @import "../../../../styles/utils/index";
 
-@include p(tab-bar-my) {
+@include p(tab-bar-my-home) {
   @include pb(user) {
     @include size(100%, px2rpx(300px));
 

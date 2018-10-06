@@ -1,5 +1,5 @@
 <template>
-  <div class="p-tab-bar-my">
+  <div class="p-tab-bar-my-home">
     <div class="pb-user">
       <image
         class="pb-user__avatar"
