@@ -11,7 +11,7 @@
       class="c-button c-button--2"
       open-type="getUserInfo"
       @getuserinfo="handleGetUserInfo">
-      登录并授权
+      授权登录
     </button>
   </div>
 </template>
@@ -27,7 +27,7 @@
         const getSettingRes = await this.$bridge.getSetting()
 
         if (!getSettingRes.authSetting['scope.userInfo']) {
-          this.$bridge.showToast({ title: '您需要授权才能进行下一步的操作，请点击登录并授权' })
+          this.$bridge.showToast({ title: '您需要授权登录才能进行下一步操作' })
         } else {
           const siginRes = await this.$bridge.request({
             requiresAuth: false,

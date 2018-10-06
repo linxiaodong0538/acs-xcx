@@ -69,7 +69,7 @@
         this.detail = result.data.data[0]
       }
     },
-    mounted () {
+    onShow () {
       this.getDetail()
     },
     onShareAppMessage: function (res) {

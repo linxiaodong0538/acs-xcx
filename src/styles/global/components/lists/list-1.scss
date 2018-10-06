@@ -1,6 +1,7 @@
 @include c(list-1) {
   @include clearfix;
 
+  min-height: px2rpx(382px);
   padding-left: px2rpx(30px);
 
   @include e(wrap) {

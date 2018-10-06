@@ -1,4 +1,6 @@
 @include c(list) {
+  min-height: px2rpx(220px);
+
   @include e(item) {
     @include margin(null, px2rpx(30px), null, px2rpx(30px));
     @include padding(px2rpx(30px), null, px2rpx(30px));
