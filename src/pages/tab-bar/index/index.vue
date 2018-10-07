@@ -1,9 +1,7 @@
 <template>
   <div class="p-tab-bar-index">
     <div class="pb-swiper-wrap">
-      <CSwiper
-        v-if="!!detail.banner"
-        :items="detail.banner" />
+      <CSwiper :items="detail.banner" />
     </div>
     <div class="c-panel">
       <div class="c-panel__head">
@@ -42,7 +40,6 @@
       </div>
       <div class="c-panel__body">
         <CList
-          v-if="!!detail.friends"
           :items="detail.friends"
           @clickitem="navigateTo('/pages/topic/main')" />
       </div>
@@ -71,7 +68,11 @@
     methods: {
       async getDetail () {
         const result = await this.$bridge.request({ url: 'index' })
-        this.detail = result.data.data[0]
+        const data = result.data.data[0]
+
+        this.detail.banner = data.banner
+        this.detail.friends = data.friends
+        this.detail.hots = data.hots
       }
     },
     onShow () {

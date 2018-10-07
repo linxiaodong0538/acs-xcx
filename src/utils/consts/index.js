@@ -1,7 +1,7 @@
 import MAPS from './maps'
 
 // 基础地址
-const BASE_URL = 'http://hd.xingxiaoban.com:8080'
+const BASE_URL = 'https://acs-api.liruan.cn'
 
 // CDN
 const CDN_URL = 'http://acs-cdn.liruan.cn'

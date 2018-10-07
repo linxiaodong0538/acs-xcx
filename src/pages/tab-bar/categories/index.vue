@@ -2,7 +2,6 @@
   <div class="p-tab-bar-categories">
     <ul class="pb-category-list u-cf">
       <li
-        v-if="!!categories.length"
         v-for="(item, index) in categories"
         :key="index"
         class="pb-category-list__item fs28 u-tac"
@@ -11,11 +10,11 @@
         {{ item.name }}
       </li>
     </ul>
-    <div class="c-panel">
+    <div
+      class="c-panel"
+      v-if="!!projects.length">
       <div class="c-panel__body">
-        <CList
-          v-if="!!panel.length"
-          :items="panel" />
+        <CList :items="projects" />
       </div>
     </div>
   </div>
@@ -31,25 +30,31 @@
     data () {
       return {
         categories: [],
-        panel: [],
+        projects: [],
         current: 0
       }
     },
     methods: {
-      handleSelect (index) {
+      async handleSelect (index) {
         this.current = index
+        this.projects = await this.getProjects(this.categories[index].id)
       },
-      async gethcData () {
-        const allRes = await Promise.all([
-          this.$bridge.request({ url: 'category' }),
-          this.$bridge.request({ url: 'index' })
-        ])
-        this.categories = allRes[0].data.data[0]
-        this.panel = allRes[1].data.data[0].friends
+      async getCategories () {
+        const categoriesRes = await this.$bridge.request({ url: 'category' })
+        return categoriesRes.data.data[0]
+      },
+      async getProjects (id) {
+        const projectsRes = await this.$bridge.request({
+          url: 'projects',
+          data: { categoryid: id || this.categories[0].id }
+        })
+        return projectsRes.data.data[0]
       }
     },
-    onShow () {
-      this.gethcData()
+    async onShow () {
+      this.current = 0
+      this.categories = await this.getCategories()
+      this.projects = await this.getProjects()
     }
   }
 </script>

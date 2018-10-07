@@ -29,26 +29,31 @@
         if (!getSettingRes.authSetting['scope.userInfo']) {
           this.$bridge.showToast({ title: '您需要授权登录才能进行下一步操作' })
         } else {
-          const siginRes = await this.$bridge.request({
-            requiresAuth: false,
-            method: 'POST',
-            url: 'signin/weixin',
-            dataType: 'json',
-            data: {
-              code: loginRes.code,
-              user: userInfo,
-              iv,
-              encryptedData
-            }
-          })
-
-          if (siginRes.data.code === 0) {
-            this.$auth.login({
-              user: userInfo,
-              token: siginRes.data.data[0].token
+          try {
+            console.log(1)
+            const siginRes = await this.$bridge.request({
+              requiresAuth: false,
+              method: 'POST',
+              url: 'signin/weixin',
+              dataType: 'json',
+              data: {
+                code: loginRes.code,
+                user: userInfo,
+                iv,
+                encryptedData
+              }
             })
-          }
+            console.log(siginRes)
 
+            if (siginRes.data.code === 0) {
+              this.$auth.login({
+                user: userInfo,
+                token: siginRes.data.data[0].token
+              })
+            }
+          } catch (e) {
+            console.log(222, e)
+          }
           const url = '/' + utils.url.decode(this.$mp.query.from)
 
           try {
