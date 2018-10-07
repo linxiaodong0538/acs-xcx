@@ -2,6 +2,7 @@
   <div class="p-tab-bar-categories">
     <ul class="pb-category-list u-cf">
       <li
+        v-if="!!categories.length"
         v-for="(item, index) in categories"
         :key="index"
         class="pb-category-list__item fs28 u-tac"
@@ -12,7 +13,9 @@
     </ul>
     <div class="c-panel">
       <div class="c-panel__body">
-        <CList :items="panel" />
+        <CList
+          v-if="!!panel.length"
+          :items="panel" />
       </div>
     </div>
   </div>

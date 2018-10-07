@@ -1,6 +1,10 @@
 <template>
   <div class="p-tab-bar-index">
-    <CSwiper :items="detail.banner" />
+    <div class="pb-swiper-wrap">
+      <CSwiper
+        v-if="!!detail.banner"
+        :items="detail.banner" />
+    </div>
     <div class="c-panel">
       <div class="c-panel__head">
         <div class="c-panel__title c3 fs36 u-fwb">最热测试</div>
@@ -38,6 +42,7 @@
       </div>
       <div class="c-panel__body">
         <CList
+          v-if="!!detail.friends"
           :items="detail.friends"
           @clickitem="navigateTo('/pages/topic/main')" />
       </div>

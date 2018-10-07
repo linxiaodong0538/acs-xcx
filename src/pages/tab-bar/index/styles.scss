@@ -1,4 +1,7 @@
 @import "../../../styles/utils/index";
 
 @include p(tab-bar-index) {
+  @include pb(swiper-wrap){
+    height: px2rpx(350px);
+  }
 }
