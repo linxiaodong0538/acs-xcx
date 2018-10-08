@@ -16,7 +16,7 @@
     "js-time": "^1.0.0",
     "jt-helpers": "0.0.1",
     "jt-time": "0.0.2",
-    "mp-client": "0.0.25",
+    "mp-client": "0.0.26",
     "mpvue": "^1.0.13",
     "sass-utils": "^1.0.20",
     "vuex": "^3.0.1",
