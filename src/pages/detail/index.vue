@@ -17,7 +17,13 @@
           </div>
         </div>
         <div class="o-grid__cell">
-          <div class="c-button c-button--1 is-right">使用好人卡</div>
+          <button
+            class="c-button c-button--1 is-right"
+            open-type="share"
+            @click="handleAskForGoodManCard">
+            求好人卡
+            <!--使用好人卡-->
+          </button>
         </div>
       </div>
     </div>
@@ -71,10 +77,21 @@
         } else {
           console.log('数据错误')
         }
+      },
+      async handleAskForGoodManCard () {
+        this.$bridge.request({
+          url: `ishare/args?projectid=${this.detail.id}`
+        })
       }
     },
-    mounted () {
+    onShow () {
       this.getDetail()
+    },
+    onShareAppMessage () {
+      return {
+        title: '求好人卡',
+        path: '/pages/ask-for/index/main'
+      }
     }
   }
 </script>

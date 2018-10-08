@@ -3,8 +3,8 @@
     <div class="pb-user">
       <image
         class="pb-user__avatar"
-        :src="consts.CDN_URL + '/demos/pages/tab-bar/my/avatar.jpg'" />
-      <div class="pb-user__name c1 fs26 u-lh-1 u-tac">发顺丰的说法</div>
+        :src="user.avatarUrl" />
+      <div class="pb-user__name c1 fs26 u-lh-1 u-tac">{{ user.nickName }}</div>
     </div>
     <div class="o-box u-mb-14">
       <div class="c-list-2 c3 fs28">
@@ -29,35 +29,47 @@
       </div>
     </div>
     <div class="o-box">
-      <div class="c-tabs c3 fs26">
-        <ul class="c-tabs__title">
-          <li class="c-tabs__item" :class="{'is-active': current == index}" v-for="(item, index) in tabs" :key="index"
-              @click="tab(index)">{{item}}
-          </li>
-        </ul>
-        <div class="c-tabs__content" v-show="index == current" v-for='(itemCont,index) in tabContents' :key="index">
-          {{itemCont}}
-        </div>
-      </div>
-    </div>
-    <div class="c-panel">
-      <div class="c-panel__body c-list">
-        <div v-for="(item, index) in [0]" :key="index" class="c-list__item">
-          <div class="c-list__title c3 fs30 u-fwb">{{ item }} - 是啊啊电风扇发是啊啊电风扇发是啊啊电风扇发是啊啊电风扇发</div>
-          <div class="c-list__subtitle c5 fs22">胜多负少的</div>
-          <div class="c-list__price c2 fs26 u-fwb">¥11</div>
-          <div class="c-list__addon c5 fs22">11人已测</div>
-          <image
-            class="c-list__image u-vc"
-            :src="consts.CDN_URL + '/demos/pages/tab-bar/index/list/1.jpg'" />
-        </div>
-        <div class="o-box pb-order c5 fs22 u-lh-1">
-          <div class="pb-order__no">
-            订单编号：
-            <text class="c3">6898982342198811238087</text>
+      <ul class="c-tabs c3 fs26">
+        <li
+          v-for="(item, index) in tabs"
+          :key="index"
+          class="c-tabs__item"
+          :class="{'is-active': current === index}"
+          @click="handleSwitchTab(index)">
+          {{ item }}
+        </li>
+      </ul>
+      <div
+        v-for='(item1, index1) in [0, 1, 2]'
+        v-show="index1 === current"
+        :key="index1"
+        class="c-tabs__content">
+        {{ index1 === current }}-{{ orders[0].length }}
+        <div class="c-panel">
+          <div class="c-panel__body c-list">
+            <div
+              v-for="(item2, index2) in orders[index1]"
+              :key="index2">
+              <div
+                class="c-list__item">
+                <div class="c-list__title c3 fs30 u-fwb">{{ item2.title }}</div>
+                <div class="c-list__subtitle c5 fs22">{{ item2.subtitle }}</div>
+                <div class="c-list__price c2 fs26 u-fwb">¥{{ item2.amount }}</div>
+                <div class="c-list__addon c5 fs22">{{ item2.usetimes }} 人已测</div>
+                <image
+                  class="c-list__image u-vc"
+                  :src="item2.thumb" />
+              </div>
+              <div class="o-box pb-order c5 fs22 u-lh-1">
+                <div class="pb-order__no">
+                  订单编号：
+                  <text class="c3">{{ item2.sn }}</text>
+                </div>
+                <div class="pb-order__buy">购买时间：{{ item2.addtime }}</div>
+                <div class="pb-order__finish">完成时间：{{ item2.usetime }}</div>
+              </div>
+            </div>
           </div>
-          <div class="pb-order__buy">购买时间：2018-02-03</div>
-          <div class="pb-order__finish">完成时间：2018-07-29</div>
         </div>
       </div>
     </div>
@@ -65,21 +77,36 @@
 </template>
 
 <script>
+  import { utils } from 'mp-client'
+
   export default {
     created () {},
     data () {
       return {
+        user: {},
         tabs: ['全部测试', '已完成', '草稿箱'],
-        tabContents: ['内容一', '内容二', '内容三'],
+        orders: [[], [], []],
         current: 0
       }
     },
     methods: {
-      tab (index) {
+      handleSwitchTab (index) {
         this.current = index
       }
     },
-    mounted () {}
+    async mounted () {
+      this.user = this.$auth.get()['user']
+      const ordersRes = await this.$bridge.request({ url: 'mine/orders' })
+      this.orders[0] = ordersRes.data.data[0].map(item => {
+        return {
+          ...item,
+          addtime: item.addtime ? utils.time.getTime(item.addtime * 1000) : '',
+          usetime: item.usetime ? utils.time.getTime(item.usetime * 1000) : ''
+        }
+      })
+
+      console.log(this.orders.all)
+    }
   }
 </script>
 

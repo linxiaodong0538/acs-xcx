@@ -4,7 +4,7 @@
       v-for="(item, index) in items"
       :key="index"
       class="c-list__item"
-      @click="handleClick">
+      @click="handleClick(item.id)">
       <div class="c-list__title c3 fs30 u-fwb">{{ item.title }}</div>
       <div class="c-list__subtitle c5 fs22">{{ item.subtitle }}</div>
       <div class="c-list__price c2 fs26 u-fwb">￥{{ item.amount }}</div>
@@ -27,8 +27,8 @@
       }
     },
     methods: {
-      handleClick () {
-        this.$emit('clickitem')
+      handleClick (id) {
+        this.$emit('clickitem', id)
       }
     }
   }

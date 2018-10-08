@@ -41,7 +41,7 @@
       <div class="c-panel__body">
         <CList
           :items="detail.friends"
-          @clickitem="navigateTo('/pages/topic/main')" />
+          @clickitem="handleClickListItem" />
       </div>
     </div>
   </div>
@@ -73,6 +73,9 @@
         this.detail.banner = data.banner
         this.detail.friends = data.friends
         this.detail.hots = data.hots
+      },
+      handleClickListItem (id) {
+        this.$bridge.navigateTo({ url: `/pages/detail/main?id=${id}` })
       }
     },
     onShow () {

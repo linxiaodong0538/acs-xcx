@@ -32,6 +32,7 @@
     ]
   },
   "pages": [
+    "pages/tab-bar/my/index/main",
     "pages/tab-bar/index/main",
     "pages/tab-bar/categories/main",
     "pages/tab-bar/my/give/main",
@@ -42,7 +43,6 @@
     "pages/ask-for/index/main",
     "pages/result/main",
     "pages/detail/main",
-    "pages/tab-bar/my/index/main",
     "pages/topic/main",
     "pages/demo/main"
   ]
