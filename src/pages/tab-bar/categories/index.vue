@@ -24,8 +24,10 @@
 
 <script>
   import CList from '@/components/list'
+  import onShareAppMessageMixin from '@/utils/mixins/onShareAppMessage'
 
   export default {
+    mixins: [onShareAppMessageMixin],
     components: {
       CList
     },

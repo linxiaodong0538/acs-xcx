@@ -79,9 +79,10 @@
 
 <script>
   import { utils } from 'mp-client'
+  import onShareAppMessageMixin from '@/utils/mixins/onShareAppMessage'
 
   export default {
-    created () {},
+    mixins: [onShareAppMessageMixin],
     data () {
       return {
         user: {},
@@ -122,6 +123,7 @@
     },
     async mounted () {
       this.user = this.$auth.get()['user']
+
       const ordersRes = await this.$bridge.request({ url: 'mine/orders' })
       const orders = ordersRes.data.data || []
       const filter = item => ({
@@ -129,6 +131,7 @@
         addtime: item.addtime ? utils.time.getTime(item.addtime * 1000) : '',
         usetime: item.usetime ? utils.time.getTime(item.usetime * 1000) : ''
       })
+
       this.orders.all = (orders[0] || []).map(item => filter(item))
       this.orders.finished = (orders[1] || []).map(item => filter(item))
       this.orders.draft = (orders[2] || []).map(item => filter(item))
