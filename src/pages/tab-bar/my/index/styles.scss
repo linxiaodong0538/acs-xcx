@@ -33,6 +33,7 @@
 
     position: relative;
     line-height: 100%;
+    border-bottom: map-get($colors, c6) solid px2rpx(14px);
 
     @include e(no) {
       padding-bottom: px2rpx(16px);
