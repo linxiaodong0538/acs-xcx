@@ -4,10 +4,10 @@
       class="pb-banner"
       :src="consts.CDN_URL + '/demos/pages/detail/banner.png'" />
     <div class="o-box u-mb-14">
-      <div class="pb-title c3 f34 u-lh-1 u-tac u-fwb">{{ detail.title }}</div>
-      <div class="pb-subtitle c5 f24 u-lh-1 u-tac">{{ detail.subtitle }}</div>
+      <div class="pb-title c3 f34">{{ detail.title }}</div>
+      <div class="pb-subtitle c5 f24">{{ detail.subtitle }}</div>
       <div class="pb-body c3 f28">{{ detail.description }}</div>
-      <div class="pb-price c2 f30 u-lh-1 u-tac u-fwb">¥{{ detail.amount }}</div>
+      <div class="pb-price c2 f30">¥{{ detail.amount }}</div>
       <div class="pb-buttons c-button--1__wrap o-grid">
         <div class="o-grid__cell">
           <div
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="pb-notice o-box">
-      <div class="pb-notice__title c f30 u-lh-1 u-fwb">测试须知</div>
+      <div class="pb-notice__title c3 f30">测试须知</div>
       <text class="pb-notice__body c3 f28">
         1.点击右上角的分享，分享给好友，获得2位以上好友的砍价成功即可免费测一次；\n
         2.本测试需要花费5分钟左右就可以出结果；\n

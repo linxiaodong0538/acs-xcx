@@ -19,7 +19,7 @@
         </div>
       </swiper-item>
     </swiper>
-    <div class="cc-indicator u-lh-1">
+    <div class="cc-indicator">
       <span
         v-for="(item, index) in indicatorItems"
         :key="index"

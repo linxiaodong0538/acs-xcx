@@ -9,10 +9,16 @@
 
   @include pb(title) {
     padding: px2rpx(30px);
+    line-height: 100%;
+    text-align: center;
+    font-weight: bold;
   }
 
   @include pb(subtitle) {
     @include padding(px2rpx(20px), null, px2rpx(37px));
+
+    line-height: 100%;
+    text-align: center;
   }
 
   @include pb(body) {
@@ -22,6 +28,9 @@
 
   @include pb(price) {
     padding-bottom: px2rpx(30px);
+    line-height: 100%;
+    text-align: center;
+    font-weight: bold;
   }
 
   @include pb(buttons) {
@@ -37,6 +46,8 @@
       border-left: px2rpx(9px) map-get($colors, c2) solid;
       padding-left: px2rpx(9px);
       margin-bottom: px2rpx(30px);
+      line-height: 100%;
+      font-weight: bold;
     }
 
     @include e(body) {
