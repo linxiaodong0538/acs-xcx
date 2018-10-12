@@ -52,12 +52,12 @@
               :key="index2">
               <div
                 class="c-list__item">
-                <div class="c-list__title c3 f30 u-fwb">{{ item2.title }}</div>
+                <div class="c-list__title c3 f30">{{ item2.title }}</div>
                 <div class="c-list__subtitle c5 f22">{{ item2.subtitle }}</div>
-                <div class="c-list__price c2 f26 u-fwb">¥{{ item2.amount }}</div>
+                <div class="c-list__price c2 f26">¥{{ item2.amount }}</div>
                 <div class="c-list__addon c5 f22">{{ item2.usetimes }} 人已测</div>
                 <image
-                  class="c-list__image u-vc"
+                  class="c-list__image"
                   :src="item2.thumb" />
               </div>
               <div class="o-box pb-order c5 f22">

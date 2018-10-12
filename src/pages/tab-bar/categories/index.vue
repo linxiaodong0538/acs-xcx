@@ -1,10 +1,10 @@
 <template>
   <div class="p-tab-bar-categories">
-    <ul class="pb-category-list u-cf">
+    <ul class="pb-category-list">
       <li
         v-for="(item, index) in categories"
         :key="index"
-        class="pb-category-list__item f28 u-tac"
+        class="pb-category-list__item f28"
         :class="{ 'is-active': index === current }"
         @click="handleSelect(index)">
         {{ item.name }}

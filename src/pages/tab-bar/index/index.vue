@@ -5,7 +5,7 @@
     </div>
     <div class="c-panel">
       <div class="c-panel__head">
-        <div class="c-panel__title c3 f36 u-fwb">最热测试</div>
+        <div class="c-panel__title c3 f36">最热测试</div>
       </div>
       <div class="c-panel__body">
         <scroll-view
@@ -31,9 +31,9 @@
     </div>
     <div class="c-panel">
       <div class="c-panel__head c-panel__head-underline">
-        <div class="c-panel__title c3 f36 u-fwb">朋友都在测</div>
+        <div class="c-panel__title c3 f36">朋友都在测</div>
         <div
-          class="c-panel__more c5 f26 u-vc"
+          class="c-panel__more c5 f26"
           @click="switchTab('/pages/tab-bar/categories/main')">
           更多
         </div>

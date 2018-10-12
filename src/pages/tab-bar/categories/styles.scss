@@ -3,6 +3,7 @@
 @include p(tab-bar-categories) {
   @include pb(category-list) {
     @include padding(px2rpx(28px), null, px2rpx(28px - 10px), px2rpx(20px));
+    @include clearfix;
 
     @include e(item) {
       @include margin(null, px2rpx(10px), px2rpx(10px));
@@ -14,6 +15,7 @@
       border-radius: px2rpx(4px);
       color: map-get($colors, c7);
       background-color: map-get($colors, c1);
+      text-align: center;
 
       &.is-active {
         color: map-get($colors, c3);
