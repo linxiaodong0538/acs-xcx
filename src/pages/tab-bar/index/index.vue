@@ -5,7 +5,7 @@
     </div>
     <div class="c-panel">
       <div class="c-panel__head">
-        <div class="c-panel__title c3 fs36 u-fwb">最热测试</div>
+        <div class="c-panel__title c3 f36 u-fwb">最热测试</div>
       </div>
       <div class="c-panel__body">
         <scroll-view
@@ -22,8 +22,8 @@
               <image
                 class="c-list-1__image"
                 :src="item.thumb" />
-              <div class="c-list-1__title c3 fs28 u-lh-fs34 u-fwb">{{ item.title }}</div>
-              <div class="c-list-1__price c2 fs26 u-lh-1 u-fwb">￥{{ item.amount }}</div>
+              <div class="c-list-1__title c3 f28 u-lh-fs34 u-fwb">{{ item.title }}</div>
+              <div class="c-list-1__price c2 f26 u-lh-1 u-fwb">￥{{ item.amount }}</div>
             </div>
           </div>
         </scroll-view>
@@ -31,9 +31,9 @@
     </div>
     <div class="c-panel">
       <div class="c-panel__head c-panel__head-underline">
-        <div class="c-panel__title c3 fs36 u-fwb">朋友都在测</div>
+        <div class="c-panel__title c3 f36 u-fwb">朋友都在测</div>
         <div
-          class="c-panel__more c5 fs26 u-vc"
+          class="c-panel__more c5 f26 u-vc"
           @click="switchTab('/pages/tab-bar/categories/main')">
           更多
         </div>

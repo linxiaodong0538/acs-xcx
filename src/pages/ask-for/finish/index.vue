@@ -5,7 +5,7 @@
         <image
           class="c-avatar__image"
           :src="consts.CDN_URL + '/demos/pages/tab-bar/my/avatar.jpg'" />
-        <div class="c-avatar__text c3 fs28">vivi的好人卡收集任务完成啦！为了更了解自己，推荐你也来参与测试</div>
+        <div class="c-avatar__text c3 f28">vivi的好人卡收集任务完成啦！为了更了解自己，推荐你也来参与测试</div>
       </div>
     </div>
     <div class="pb-panel c-panel">

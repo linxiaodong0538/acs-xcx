@@ -4,10 +4,10 @@
       <image
         class="pb-user__avatar"
         :src="user.avatarUrl" />
-      <div class="pb-user__name c1 fs26 u-lh-1 u-tac">{{ user.nickName }}</div>
+      <div class="pb-user__name c1 f26 u-lh-1 u-tac">{{ user.nickName }}</div>
     </div>
     <div class="o-box u-mb-14">
-      <div class="c-list-2 c3 fs28">
+      <div class="c-list-2 c3 f28">
         <div
           class="c-list-2__item is-link"
           @click="navigateTo('/pages/tab-bar/my/receive/main')">
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="o-box">
-      <ul class="c-tabs c3 fs26">
+      <ul class="c-tabs c3 f26">
         <li
           v-for="(item, index) in tabs"
           :key="index"
@@ -52,15 +52,15 @@
               :key="index2">
               <div
                 class="c-list__item">
-                <div class="c-list__title c3 fs30 u-fwb">{{ item2.title }}</div>
-                <div class="c-list__subtitle c5 fs22">{{ item2.subtitle }}</div>
-                <div class="c-list__price c2 fs26 u-fwb">¥{{ item2.amount }}</div>
-                <div class="c-list__addon c5 fs22">{{ item2.usetimes }} 人已测</div>
+                <div class="c-list__title c3 f30 u-fwb">{{ item2.title }}</div>
+                <div class="c-list__subtitle c5 f22">{{ item2.subtitle }}</div>
+                <div class="c-list__price c2 f26 u-fwb">¥{{ item2.amount }}</div>
+                <div class="c-list__addon c5 f22">{{ item2.usetimes }} 人已测</div>
                 <image
                   class="c-list__image u-vc"
                   :src="item2.thumb" />
               </div>
-              <div class="o-box pb-order c5 fs22 u-lh-1">
+              <div class="o-box pb-order c5 f22 u-lh-1">
                 <div class="pb-order__no">
                   订单编号：
                   <text class="c3">{{ item2.sn }}</text>
