@@ -22,8 +22,8 @@
               <image
                 class="c-list-1__image"
                 :src="item.thumb" />
-              <div class="c-list-1__title c3 f28 u-lh-fs34 u-fwb">{{ item.title }}</div>
-              <div class="c-list-1__price c2 f26 u-lh-1 u-fwb">￥{{ item.amount }}</div>
+              <div class="c-list-1__title c3 f28">{{ item.title }}</div>
+              <div class="c-list-1__price c2 f26">￥{{ item.amount }}</div>
             </div>
           </div>
         </scroll-view>

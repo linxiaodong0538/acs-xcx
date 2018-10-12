@@ -4,7 +4,7 @@
       <image
         class="pb-user__avatar"
         :src="user.avatarUrl" />
-      <div class="pb-user__name c1 f26 u-lh-1 u-tac">{{ user.nickName }}</div>
+      <div class="pb-user__name c1 f26">{{ user.nickName }}</div>
     </div>
     <div class="o-box u-mb-14">
       <div class="c-list-2 c3 f28">
@@ -60,7 +60,7 @@
                   class="c-list__image u-vc"
                   :src="item2.thumb" />
               </div>
-              <div class="o-box pb-order c5 f22 u-lh-1">
+              <div class="o-box pb-order c5 f22">
                 <div class="pb-order__no">
                   订单编号：
                   <text class="c3">{{ item2.sn }}</text>

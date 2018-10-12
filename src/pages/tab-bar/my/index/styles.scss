@@ -23,6 +23,8 @@
       @include position--absolute(px2rpx(195px));
 
       width: 100%;
+      line-height: 100%;
+      text-align: center;
     }
   }
 
@@ -30,6 +32,7 @@
     @include padding(px2rpx(20px), null, px2rpx(20px));
 
     position: relative;
+    line-height: 100%;
 
     @include e(no) {
       padding-bottom: px2rpx(16px);
