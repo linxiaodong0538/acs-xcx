@@ -14,7 +14,9 @@
       class="c-panel"
       v-if="!!projects.length">
       <div class="c-panel__body">
-        <CList :items="projects" />
+        <CList
+          :items="projects"
+          @clickitem="handleClickListItem" />
       </div>
     </div>
   </div>
@@ -49,6 +51,9 @@
           data: { categoryid: id || this.categories[0].id }
         })
         return projectsRes.data.data[0]
+      },
+      handleClickListItem (id) {
+        this.$bridge.navigateTo({ url: `/pages/detail/main?id=${id}` })
       }
     },
     async onShow () {

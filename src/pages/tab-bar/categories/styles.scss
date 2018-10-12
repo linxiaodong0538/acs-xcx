@@ -7,6 +7,7 @@
     @include e(item) {
       @include margin(null, px2rpx(10px), px2rpx(10px));
       @include text--middle(px2rpx(60px));
+      @include text--overflow;
 
       display: inline-block;
       width: px2rpx(170px);
