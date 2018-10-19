@@ -47,7 +47,7 @@
       @include e(text) {
         width: px2rpx(550px);
         left: px2rpx(80px + 27px);
-        line-height: map-get($font-sizes, fs38);
+        line-height: map-get($font-sizes, f38);
       }
     }
   }

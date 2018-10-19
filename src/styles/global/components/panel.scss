@@ -18,9 +18,13 @@
     display: inline-block;
     line-height: px2rpx(5px);
     border-bottom: px2rpx(18px) solid map-get($colors, c2);
+    font-weight: bold;
   }
 
   @include e(more) {
+    @include position--absolute(50%);
+
+    transform: translateY(-50%);
     right: 0;
     display: inline-block;
     padding: px2rpx(30px);

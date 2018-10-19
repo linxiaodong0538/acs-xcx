@@ -1,10 +1,10 @@
 <template>
   <div class="p-tab-bar-categories">
-    <ul class="pb-category-list u-cf">
+    <ul class="pb-category-list">
       <li
         v-for="(item, index) in categories"
         :key="index"
-        class="pb-category-list__item fs28 u-tac"
+        class="pb-category-list__item f28"
         :class="{ 'is-active': index === current }"
         @click="handleSelect(index)">
         {{ item.name }}
@@ -14,7 +14,9 @@
       class="c-panel"
       v-if="!!projects.length">
       <div class="c-panel__body">
-        <CList :items="projects" />
+        <CList
+          :items="projects"
+          @clickitem="handleClickListItem" />
       </div>
     </div>
   </div>
@@ -22,8 +24,10 @@
 
 <script>
   import CList from '@/components/list'
+  import onShareAppMessageMixin from '@/utils/mixins/onShareAppMessage'
 
   export default {
+    mixins: [onShareAppMessageMixin],
     components: {
       CList
     },
@@ -49,6 +53,9 @@
           data: { categoryid: id || this.categories[0].id }
         })
         return projectsRes.data.data[0]
+      },
+      handleClickListItem (id) {
+        this.$bridge.navigateTo({ url: `/pages/detail/main?id=${id}` })
       }
     },
     async onShow () {

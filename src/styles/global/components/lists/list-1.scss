@@ -25,9 +25,13 @@
     @include padding(px2rpx(20px), null, px2rpx(20px));
 
     min-height: px2rpx(61px);
+    line-height: map-get($font-sizes, f34);
+    font-weight: bold;
   }
 
   @include e(price) {
     margin-bottom: px2rpx(29px);
+    line-height: 100%;
+    font-weight: bold;
   }
 }

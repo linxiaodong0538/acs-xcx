@@ -9,7 +9,7 @@
     width: px2rpx(330px);
     background-color: map-get($colors, c2);
     color: map-get($colors, c3);
-    font-size: map-get($font-sizes, fs32);
+    font-size: map-get($font-sizes, f32);
     border-radius: px2rpx(6px);
 
     @include e(wrap) {
@@ -31,7 +31,7 @@
     border-radius: px2rpx(80px);
     background-color: map-get($colors, c2);
     color: map-get($colors, c1);
-    font-size: map-get($font-sizes, fs32);
+    font-size: map-get($font-sizes, f32);
   }
 
   @include m(3) {
@@ -41,6 +41,6 @@
     border-radius: px2rpx(4px);
     background-color: map-get($colors, c2);
     color: map-get($colors, c9);
-    font-size: map-get($font-sizes, fs26);
+    font-size: map-get($font-sizes, f26);
   }
 }

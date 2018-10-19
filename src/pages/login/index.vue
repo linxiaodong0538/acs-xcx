@@ -2,9 +2,9 @@
   <div class="p-login">
     <div class="pb-logo">
       <div class="c-icon c-icon--logo"></div>
-      <div class="pb-logo__title fs36">牛测试</div>
+      <div class="pb-logo__title f36">牛测试</div>
     </div>
-    <p class="pb-tip c5 fs27">
+    <p class="pb-tip c5 f27">
       您暂未获取微信授权，将无法正常使用小程序的功能。如需要正常使用，请点击“授权登录”按钮，打开头像，昵称等信息的授权。
     </p>
     <button

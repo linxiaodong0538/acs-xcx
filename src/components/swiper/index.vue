@@ -14,12 +14,12 @@
           mode="aspectFill"
           :src="item.thumb" />
         <div class="c-swiper__titles c1">
-          <div class="c-swiper__title fs40">{{ item.title }}</div>
-          <div class="c-swiper__subtitle fs30">{{ item.subtitle }}</div>
+          <div class="c-swiper__title f40">{{ item.title }}</div>
+          <div class="c-swiper__subtitle f30">{{ item.subtitle }}</div>
         </div>
       </swiper-item>
     </swiper>
-    <div class="cc-indicator u-lh-1">
+    <div class="cc-indicator">
       <span
         v-for="(item, index) in indicatorItems"
         :key="index"

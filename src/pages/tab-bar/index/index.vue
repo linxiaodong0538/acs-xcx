@@ -5,7 +5,7 @@
     </div>
     <div class="c-panel">
       <div class="c-panel__head">
-        <div class="c-panel__title c3 fs36 u-fwb">最热测试</div>
+        <div class="c-panel__title c3 f36">最热测试</div>
       </div>
       <div class="c-panel__body">
         <scroll-view
@@ -22,8 +22,8 @@
               <image
                 class="c-list-1__image"
                 :src="item.thumb" />
-              <div class="c-list-1__title c3 fs28 u-lh-fs34 u-fwb">{{ item.title }}</div>
-              <div class="c-list-1__price c2 fs26 u-lh-1 u-fwb">￥{{ item.amount }}</div>
+              <div class="c-list-1__title c3 f28">{{ item.title }}</div>
+              <div class="c-list-1__price c2 f26">￥{{ item.amount }}</div>
             </div>
           </div>
         </scroll-view>
@@ -31,9 +31,9 @@
     </div>
     <div class="c-panel">
       <div class="c-panel__head c-panel__head-underline">
-        <div class="c-panel__title c3 fs36 u-fwb">朋友都在测</div>
+        <div class="c-panel__title c3 f36">朋友都在测</div>
         <div
-          class="c-panel__more c5 fs26 u-vc"
+          class="c-panel__more c5 f26"
           @click="switchTab('/pages/tab-bar/categories/main')">
           更多
         </div>
@@ -50,8 +50,10 @@
 <script>
   import CSwiper from '@/components/swiper'
   import CList from '@/components/list'
+  import onShareAppMessageMixin from '@/utils/mixins/onShareAppMessage'
 
   export default {
+    mixins: [onShareAppMessageMixin],
     data () {
       return {
         detail: {
@@ -80,19 +82,6 @@
     },
     onShow () {
       this.getDetail()
-    },
-    onShareAppMessage: function (res) {
-      return {
-        title: '您的好友分享了一张',
-        desc: '测试测杀杀杀杀杀杀杀杀杀',
-        path: 'pages/tab-bar/index/main',
-        success: function (res) {
-          console.log('转发成功')
-        },
-        fail: function (res) {
-          console.log('转发失败:')
-        }
-      }
     }
   }
 </script>

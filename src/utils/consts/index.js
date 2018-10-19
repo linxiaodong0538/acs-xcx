@@ -5,7 +5,7 @@ const BASE_URL = 'https://acs-api.liruan.cn'
 
 // CDN
 const CDN_URL = 'http://acs-cdn.liruan.cn'
-
+// const CDN_URL = 'http://localhost:88'
 // 分页大小
 const PAGE_SIZE = 10
 
